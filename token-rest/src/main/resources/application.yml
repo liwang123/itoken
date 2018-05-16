@@ -1,0 +1,46 @@
+
+server:
+  port: @server.port@
+  error:
+    whitelabel:
+      enabled: false
+  tomcat:
+    max-threads: 2000
+    accept-count: 2000
+    max-connections: 4000
+    min-spare-threads: 25
+  connection-timeout: 5s
+
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+#
+# datasource
+#
+thingtrust:
+  token:
+    datasource:
+      master:
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: @thingtrust.token.datasource.master.url@
+        username: @thingtrust.token.datasource.master.username@
+        password: @thingtrust.token.datasource.master.password@
+        max-active: 10
+        min-idle: 0
+  app:
+    name: @token.app.name@
+    version: @token.app.version@
+    domain: @token.app.domain@
+    env:
+      name: @token.app.env.name@
+logging:
+  config: @logging.config@
+  path: @logging.path@
+  level:
+    default: @logging.level.default@
+    commons: @logging.level.commons@
+    token: @logging.level.token@
+    mybatis: @logging.level.mybatis@
+

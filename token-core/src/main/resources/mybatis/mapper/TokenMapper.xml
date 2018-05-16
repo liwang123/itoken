@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.thingtrust.token.data.TokenRepository">
+																  <!-- CodeBuilder  Generated-->
+  <resultMap id="TokenMap" type="com.thingtrust.token.domain.Token">
+  					 <id column="id" property="id" jdbcType="INTEGER" />
+							<result column="asset_name" property="assetName" jdbcType="VARCHAR" />
+							<result column="ticker" property="ticker" jdbcType="VARCHAR" />
+							<result column="cap" property="cap" jdbcType="BIGINT" />
+							<result column="issuser_name" property="issuserName" jdbcType="VARCHAR" />
+							<result column="address" property="address" jdbcType="VARCHAR" />
+							<result column="review_status" property="reviewStatus" jdbcType="INTEGER" />
+							<result column="pay_status" property="payStatus" jdbcType="TINYINT" />
+							<result column="email" property="email" jdbcType="VARCHAR" />
+							<result column="operator" property="operator" jdbcType="INTEGER" />
+							<result column="crt_time" property="crtTime" jdbcType="TIMESTAMP" />
+							<result column="operator_time" property="operatorTime" jdbcType="TIMESTAMP" />
+							<result column="email_id" property="emailId" jdbcType="INTEGER" />
+							<result column="tokencol" property="tokencol" jdbcType="VARCHAR" />
+							<result column="tokencol1" property="tokencol1" jdbcType="VARCHAR" />
+			  </resultMap>
+  <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+  <sql id="Table_Name">token</sql>
+	<sql id="Base_Column_List_Without_Id">
+  	  									asset_name ,								ticker ,								cap ,								issuser_name ,								address ,								review_status ,								pay_status ,								email ,								operator ,								crt_time ,								operator_time ,								email_id ,								tokencol ,								tokencol1 			  </sql>
+  <sql id="Base_Column_List">
+  	  					id ,
+			  			  			  			  			  			  			  			  			  			  			  			  			  			  				<include refid="Base_Column_List_Without_Id"/>
+  </sql>
+    <sql id="Insert_Columns">
+     							<if test="record.assetName != null">asset_name,</if>
+							<if test="record.ticker != null">ticker,</if>
+							<if test="record.cap != null">cap,</if>
+							<if test="record.issuserName != null">issuser_name,</if>
+							<if test="record.address != null">address,</if>
+							<if test="record.reviewStatus != null">review_status,</if>
+							<if test="record.payStatus != null">pay_status,</if>
+							<if test="record.email != null">email,</if>
+							<if test="record.operator != null">operator,</if>
+							<if test="record.crtTime != null">crt_time,</if>
+							<if test="record.operatorTime != null">operator_time,</if>
+							<if test="record.emailId != null">email_id,</if>
+							<if test="record.tokencol != null">tokencol,</if>
+							<if test="record.tokencol1 != null">tokencol1,</if>
+			    </sql>
+    <sql id="Insert_Values">
+    							<if test="record.assetName != null">#{record.assetName,jdbcType=VARCHAR},</if>
+							<if test="record.ticker != null">#{record.ticker,jdbcType=VARCHAR},</if>
+							<if test="record.cap != null">#{record.cap,jdbcType=BIGINT},</if>
+							<if test="record.issuserName != null">#{record.issuserName,jdbcType=VARCHAR},</if>
+							<if test="record.address != null">#{record.address,jdbcType=VARCHAR},</if>
+							<if test="record.reviewStatus != null">#{record.reviewStatus,jdbcType=INTEGER},</if>
+							<if test="record.payStatus != null">#{record.payStatus,jdbcType=TINYINT},</if>
+							<if test="record.email != null">#{record.email,jdbcType=VARCHAR},</if>
+							<if test="record.operator != null">#{record.operator,jdbcType=INTEGER},</if>
+							<if test="record.crtTime != null">#{record.crtTime,jdbcType=TIMESTAMP},</if>
+							<if test="record.operatorTime != null">#{record.operatorTime,jdbcType=TIMESTAMP},</if>
+							<if test="record.emailId != null">#{record.emailId,jdbcType=INTEGER},</if>
+							<if test="record.tokencol != null">#{record.tokencol,jdbcType=VARCHAR},</if>
+							<if test="record.tokencol1 != null">#{record.tokencol1,jdbcType=VARCHAR},</if>
+			    </sql>
+    <sql id="Batch_Insert_Values">
+								 #{record.assetName,jdbcType=VARCHAR},
+		 					 #{record.ticker,jdbcType=VARCHAR},
+		 					 #{record.cap,jdbcType=BIGINT},
+		 					 #{record.issuserName,jdbcType=VARCHAR},
+		 					 #{record.address,jdbcType=VARCHAR},
+		 					 #{record.reviewStatus,jdbcType=INTEGER},
+		 					 #{record.payStatus,jdbcType=TINYINT},
+		 					 #{record.email,jdbcType=VARCHAR},
+		 					 #{record.operator,jdbcType=INTEGER},
+		 					 #{record.crtTime,jdbcType=TIMESTAMP},
+		 					 #{record.operatorTime,jdbcType=TIMESTAMP},
+		 					 #{record.emailId,jdbcType=INTEGER},
+		 					 #{record.tokencol,jdbcType=VARCHAR},
+		 					 #{record.tokencol1,jdbcType=VARCHAR},
+		 	    </sql>
+	<sql id="Batch_Insert_Values_On_DuplicateKey">
+									#{record.id,jdbcType=INTEGER},
+																																																																													<include refid="Batch_Insert_Values"/>
+	</sql>
+    <sql id="Update_Set_From_Bean">
+	 							<if test="record.assetName != null">asset_name = #{record.assetName,jdbcType=VARCHAR} ,</if>
+							<if test="record.ticker != null">ticker = #{record.ticker,jdbcType=VARCHAR} ,</if>
+							<if test="record.cap != null">cap = #{record.cap,jdbcType=BIGINT} ,</if>
+							<if test="record.issuserName != null">issuser_name = #{record.issuserName,jdbcType=VARCHAR} ,</if>
+							<if test="record.address != null">address = #{record.address,jdbcType=VARCHAR} ,</if>
+							<if test="record.reviewStatus != null">review_status = #{record.reviewStatus,jdbcType=INTEGER} ,</if>
+							<if test="record.payStatus != null">pay_status = #{record.payStatus,jdbcType=TINYINT} ,</if>
+							<if test="record.email != null">email = #{record.email,jdbcType=VARCHAR} ,</if>
+							<if test="record.operator != null">operator = #{record.operator,jdbcType=INTEGER} ,</if>
+							<if test="record.crtTime != null">crt_time = #{record.crtTime,jdbcType=TIMESTAMP} ,</if>
+							<if test="record.operatorTime != null">operator_time = #{record.operatorTime,jdbcType=TIMESTAMP} ,</if>
+							<if test="record.emailId != null">email_id = #{record.emailId,jdbcType=INTEGER} ,</if>
+							<if test="record.tokencol != null">tokencol = #{record.tokencol,jdbcType=VARCHAR} ,</if>
+							<if test="record.tokencol1 != null">tokencol1 = #{record.tokencol1,jdbcType=VARCHAR} ,</if>
+			    </sql>
+	<!-- insert -->
+	<insert id="insert" parameterType="java.util.Map">
+        <selectKey resultType="java.lang.Integer" keyProperty="record.id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+		        insert into <include refid="Table_Name"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <include refid="Insert_Columns"/>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <include refid="Insert_Values"/>
+        </trim>
+    </insert>
+    <insert id="batchInsert" parameterType="java.util.Map">
+        insert into <include refid="Table_Name"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <include refid="Base_Column_List_Without_Id"/>
+        </trim>
+        values
+        <foreach collection="records" item="record" index="index" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <include refid="Batch_Insert_Values"/>
+            </trim>
+        </foreach>
+    </insert>
+	<insert id="batchInsertOnDuplicateKey" parameterType="java.util.Map">
+		insert into <include refid="Table_Name"/>
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<include refid="Base_Column_List"/>
+		</trim>
+		values
+		<foreach collection="records" item="record" index="index" separator=",">
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<include refid="Batch_Insert_Values_On_DuplicateKey"/>
+			</trim>
+		</foreach>
+		ON DUPLICATE KEY UPDATE 
+																asset_name = VALUES(asset_name)  ,												ticker = VALUES(ticker)  ,												cap = VALUES(cap)  ,												issuser_name = VALUES(issuser_name)  ,												address = VALUES(address)  ,												review_status = VALUES(review_status)  ,												pay_status = VALUES(pay_status)  ,												email = VALUES(email)  ,												operator = VALUES(operator)  ,												crt_time = VALUES(crt_time)  ,												operator_time = VALUES(operator_time)  ,												email_id = VALUES(email_id)  ,												tokencol = VALUES(tokencol)  ,												tokencol1 = VALUES(tokencol1)  						</insert>
+	<!-- end insert -->
+    <!-- delete -->
+    <delete id="deleteById" parameterType="java.util.Map">
+        delete from <include refid="Table_Name"/> where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="java.util.Map">
+        delete from <include refid="Table_Name"/>
+        <if test="example != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <delete id="deleteIn" parameterType="java.util.Map">
+        delete from <include refid="Table_Name"/> where id in
+        <foreach collection="records" item="record" index="index" open="(" separator="," close=")">
+			#{record.id,jdbcType=INTEGER}
+		</foreach>
+    </delete>
+    <!-- end delete -->
+    <!-- update -->
+	<update id="updateById" parameterType="java.util.Map">
+        update <include refid="Table_Name"/>
+        <set>
+            <include refid="Update_Set_From_Bean"/>
+        </set>
+		where id = #{record.id,jdbcType=INTEGER}
+	</update>
+    <update id="updateByExample" parameterType="java.util.Map">
+        update <include refid="Table_Name"/>
+        <set>
+            <include refid="Update_Set_From_Bean"/>
+        </set>
+        <if test="example != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="batchUpdate" parameterType="java.util.Map">
+        <foreach collection="records" item="record" index="index" open="" close="" separator=";">
+            update <include refid="Table_Name"/>
+            <set>
+            	<include refid="Update_Set_From_Bean"/>
+            </set>
+			where id=#{record.id,jdbcType=INTEGER}
+		</foreach>
+    </update>
+	 <!-- end update -->
+    <!-- select -->
+    <select id="selectById" resultMap="TokenMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List"/>
+        from <include refid="Table_Name"/>
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectByExample" resultMap="TokenMap" parameterType="java.util.Map">
+      select
+      <if test="example != null and example.distinct">
+        distinct
+      </if>
+      <include refid="Base_Column_List"/>
+      from <include refid="Table_Name"/>
+      <if test="example != null">
+        <include refid="Example_Where_Clause"/>
+      </if>
+      <if test="example != null and example.orderByClause != null">
+        order by ${example.orderByClause}
+      </if>
+    </select>
+    <select id="selectOneByExample" resultMap="TokenMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List"/>
+        from <include refid="Table_Name"/>
+		<if test="example != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        limit 1
+    </select>
+    <select id="selectIn" resultMap="TokenMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List"/>
+        from <include refid="Table_Name"/>
+        where id IN
+        <foreach collection="records" item="record" index="index" open="(" separator="," close=")">
+			#{record.id,jdbcType=INTEGER}
+		</foreach>
+    </select>
+    <select id="countByExample" resultType="java.lang.Integer" parameterType="java.util.Map">
+        select count(*) as total from <include refid="Table_Name"/>
+       <if test="example != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <select id="countByPager" resultType="java.lang.Integer" parameterType="java.util.Map">
+        select count(*) as total from <include refid="Table_Name"/>
+		<if test="example != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <select id="selectByPager" resultMap="TokenMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List"/>
+        from <include refid="Table_Name"/>
+        <if test="example != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="pager.sortItem != null and pager.sortItem != '' ">
+            order by ${pager.sortItem} ${pager.sortType}
+        </if>
+        limit #{pager.startIndex} , #{pager.pageSize}
+    </select>
+	 <!-- end select -->
+    <!-- My Custom Interfaces -->
+</mapper>
