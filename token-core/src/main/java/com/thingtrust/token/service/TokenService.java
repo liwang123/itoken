@@ -15,7 +15,7 @@ public class TokenService {
 
     public String getDemo(int id){
         Token token = tokenRepository.selectById(id);
-        System.out.println(token.getAddress());
+//        System.out.println(token.getAddress());
         return "";
     }
 }

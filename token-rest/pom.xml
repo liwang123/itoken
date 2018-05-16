@@ -11,7 +11,7 @@
 
     <artifactId>token-rest</artifactId>
     <packaging>jar</packaging>
-    <name>okcoin-users-rest</name>
+    <name>thingtrust-token-rest</name>
     <description>REST API层</description>
     <properties>
         <start-class>com.thingtrust.token.TokenApplication</start-class>
