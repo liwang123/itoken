@@ -12,5 +12,13 @@
     <artifactId>token-dto</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok-maven</artifactId>
+            <version>1.16.20.0</version>
 
+        </dependency>
+
+    </dependencies>
 </project>
