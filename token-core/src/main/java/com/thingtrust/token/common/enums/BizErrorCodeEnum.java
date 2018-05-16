@@ -8,7 +8,9 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import java.util.Locale;
 
 public enum BizErrorCodeEnum implements ErrorCode{
-    INTERNET_ERROR(3000);
+    INTERNET_ERROR(3000),
+    PROGRMER_ERROR(3001),
+    ;
 
     private final int code;
 
@@ -28,9 +30,6 @@ public enum BizErrorCodeEnum implements ErrorCode{
     public String getMessage() {
         String msg = LocaleUtils.getMessage("error.code.biz." + this.code);
         final Locale locale = LocaleContextHolder.getLocale();
-
-
-
         return msg;
     }
 

@@ -13,19 +13,19 @@ import java.io.Serializable;
  * @create 2018/5/15
  * @since 1.0.0
  */
-public class ResponseResult<T> implements Serializable {
+public class ResponseResult implements Serializable {
 
     private int code = 0;
     private String msg = "";
     private String detailMsg = "";
-    private T data;
+    private Object data;
 
     public static ResponseResult success() {
-        return success(new Object());
+        return success("");
     }
 
-    public static <T> ResponseResult success(T data) {
-        return build(0, "", "", data);
+    public static ResponseResult success(Object data) {
+        return build(0, "Success", "", data);
     }
 
     public static ResponseResult failure(int code, String msg) {
@@ -44,7 +44,7 @@ public class ResponseResult<T> implements Serializable {
         return failure(errorCode.getCode(), errorCode.getMessage(), detailMsg);
     }
 
-    public static <T> ResponseResult failure(ErrorCode errorCode, T data) {
+    public static  ResponseResult failure(ErrorCode errorCode, Object data) {
         return build(errorCode.getCode(), errorCode.getMessage(), "", data);
     }
 
@@ -57,14 +57,14 @@ public class ResponseResult<T> implements Serializable {
     }
 
     public static ResponseResult failure(int code, String msg, String detailMsg) {
-        return build(code, msg, detailMsg, new Object());
+        return build(code, msg, detailMsg, "");
     }
 
     public static ResponseResult failure(int code, String msg, Throwable ex) {
         return build(code, msg, AppEnvConsts.isProductionMode() ? "" : ExceptionUtils.getStackTrace(ex), new Object());
     }
 
-    public static <T> ResponseResult build(int code, String msg, String detailMsg, T data) {
+    public static  ResponseResult build(int code, String msg, String detailMsg, Object data) {
         return new ResponseResult(code, msg, detailMsg, data);
     }
 
@@ -80,7 +80,7 @@ public class ResponseResult<T> implements Serializable {
         return this.detailMsg;
     }
 
-    public T getData() {
+    public Object getData() {
         return this.data;
     }
 
@@ -96,7 +96,7 @@ public class ResponseResult<T> implements Serializable {
         this.detailMsg = detailMsg;
     }
 
-    public void setData(T data) {
+    public void setData(Object data) {
         this.data = data;
     }
 
@@ -107,7 +107,7 @@ public class ResponseResult<T> implements Serializable {
         } else if (!(o instanceof ResponseResult)) {
             return false;
         } else {
-            ResponseResult<?> other = (ResponseResult)o;
+            ResponseResult other = (ResponseResult)o;
             if (!other.canEqual(this)) {
                 return false;
             } else if (this.getCode() != other.getCode()) {
@@ -177,7 +177,7 @@ public class ResponseResult<T> implements Serializable {
     public ResponseResult() {
     }
 
-    private ResponseResult(int code, String msg, String detailMsg, T data) {
+    private ResponseResult(int code, String msg, String detailMsg, Object data) {
         this.code = code;
         this.msg = msg;
         this.detailMsg = detailMsg;

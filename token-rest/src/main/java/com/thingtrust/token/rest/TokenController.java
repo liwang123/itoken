@@ -1,6 +1,7 @@
 package com.thingtrust.token.rest;
 
 
+import com.thingtrust.token.TestDTO;
 import com.thingtrust.token.common.enums.BizErrorCodeEnum;
 import com.thingtrust.token.common.model.ResponseResult;
 import com.thingtrust.token.service.TokenService;
@@ -22,6 +23,6 @@ public class TokenController {
     @PostMapping(value = "/test")
     public ResponseResult getString(int id){
         String str = tokenService.getDemo(id);
-        return ResponseResult.failure(BizErrorCodeEnum.INTERNET_ERROR);
+        return ResponseResult.success();
     }
 }

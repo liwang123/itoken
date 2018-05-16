@@ -38,10 +38,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     private static ThreadPoolTaskExecutor executor = null;
 
-    @Bean
-    public ObjectMapper objectMapper() {
-        return new ObjectMapper().disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
-    }
+
 
     @Bean
     public LocaleResolver localeResolver() {

@@ -55,8 +55,8 @@ public class LocaleUtils {
 
     @Autowired
     public LocaleUtils(LocaleResolver localeResolver, MessageSource messageSource) {
-        localeResolver = localeResolver;
-        messageSource = messageSource;
+        LocaleUtils.localeResolver = localeResolver;
+        LocaleUtils.messageSource = messageSource;
     }
 
     public static void setInitLocale(HttpServletRequest request, HttpServletResponse response) {
