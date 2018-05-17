@@ -84,7 +84,7 @@ public class MailService {
         }
     }
 
-    public void sendTemplateMail(final String to, final String subject, final Map<String, String> paraMap) {
+    public void sendTemplateMail(final String to, final String subject, final String templateName, final Map<String, String> paraMap) {
         //创建邮件正文
         final Context context = new Context();
         if (paraMap != null) {
@@ -94,7 +94,7 @@ public class MailService {
                         context.setVariable(event.getKey(), event.getValue());
                     });
         }
-        final String emailContent = templateEngine.process("emailTemplate1", context);
+        final String emailContent = templateEngine.process(templateName, context);
         sendHtmlMail(to, subject, emailContent);
     }
 
