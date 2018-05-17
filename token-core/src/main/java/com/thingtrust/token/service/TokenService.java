@@ -16,7 +16,7 @@ public class TokenService {
     @Autowired
     private TokenRepository tokenRepository;
 
-    public String getDemo(int id){
+    public String getDemo(Long id){
         Token token = tokenRepository.selectById(id);
         System.out.println(BizErrorCodeEnum.PROGRMER_ERROR.getMessage());
 //        System.out.println(token.getAddress());

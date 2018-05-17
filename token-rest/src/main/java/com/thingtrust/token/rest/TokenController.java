@@ -26,7 +26,7 @@ public class TokenController {
     private MailService mailService;
 
     @PostMapping(value = "/test")
-    public ResponseResult getString(int id){
+    public ResponseResult getString(Long id){
         String str = tokenService.getDemo(id);
         return ResponseResult.success();
     }

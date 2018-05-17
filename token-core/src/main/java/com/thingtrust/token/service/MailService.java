@@ -24,7 +24,7 @@ public class MailService {
 
     public void sendTextMail(String to, String subject, String content){
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("18501055456@163.com");
+        message.setFrom("support@trustnote.org");
         message.setTo(to);
         message.setSubject(subject);
         message.setText(content);
