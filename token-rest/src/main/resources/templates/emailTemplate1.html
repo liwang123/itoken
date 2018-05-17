@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <head>
     <meta charset="UTF-8"/>
     <title></title>
@@ -17,7 +17,7 @@
     <p class="title">Conrantulations！</p>
     <p><span></span></p>
     <p>Your token is successfully created.</p>
-    <p><a th:href="@{https://testexplorer.trustnote.org/detail#}">
+    <p><a th:href="'https://testexplorer.trustnote.org/detail#'+${condition} ">
             <p th:text="${condition}"></p>
         </a>
     </p>

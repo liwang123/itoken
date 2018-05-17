@@ -40,17 +40,17 @@ public class MailService {
     @Value("${thingTrust.mail.alias}")
     private String alias;
 
-    public void sendTextMail(String to, String subject, String content){
-        SimpleMailMessage message = new SimpleMailMessage();
+    public void sendTextMail(final String to, final String subject, final String content) {
+        final SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
         message.setTo(to);
         message.setSubject(subject);
         message.setText(content);
         try {
             javaMailSender.send(message);
-            log.info("简单邮件已经发送。");
-        } catch (Exception e) {
-            log.error("发送简单邮件时发生异常！", e);
+            MailService.log.info("简单邮件已经发送。");
+        } catch (final Exception e) {
+            MailService.log.error("发送简单邮件时发生异常！", e);
         }
     }
 
@@ -61,33 +61,33 @@ public class MailService {
      * @param content
      */
 
-    public void sendHtmlMail(String to, String subject, String content) {
-        MimeMessage message = javaMailSender.createMimeMessage();
+    public void sendHtmlMail(final String to, final String subject, final String content) {
+
+        final MimeMessage message = javaMailSender.createMimeMessage();
 
         try {
             //true表示需要创建一个multipart message
-            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+            final MimeMessageHelper helper = new MimeMessageHelper(message, true);
             try {
-                helper.setFrom(new InternetAddress(from,alias));
-            } catch (UnsupportedEncodingException e) {
+                helper.setFrom(new InternetAddress(from, alias));
+            } catch (final UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
             helper.setTo(to);
             helper.setSubject(subject);
             helper.setText(content, true);
             javaMailSender.send(message);
-            log.info("html邮件发送成功");
-        } catch (MessagingException e) {
-            log.error("发送html邮件时发生异常！", e);
+            MailService.log.info("html邮件发送成功");
+        } catch (final MessagingException e) {
+            MailService.log.error("发送html邮件时发生异常！", e);
         }
     }
 
     public void sendTemplateMail() {
         //创建邮件正文
-        Context context = new Context();
-        context.setVariable("condition", "#hahaha1212");
-        String emailContent = templateEngine.process("emailTemplate1", context);
-
+        final Context context = new Context();
+        context.setVariable("condition", "hahaha1212");
+        final String emailContent = templateEngine.process("emailTemplate1", context);
         sendHtmlMail("76167050@qq.com","主题：这是模板邮件",emailContent);
     }
 
