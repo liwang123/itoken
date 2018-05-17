@@ -1,8 +1,9 @@
 public class Test {
 
     public static void main(final String[] args) {
-//        Map map = Maps.newHashMap();
+
     }
+
     static class User{
         String name;
         String password;

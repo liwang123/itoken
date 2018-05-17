@@ -14,6 +14,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
+import java.util.Map;
 
 
 /**
@@ -83,12 +84,18 @@ public class MailService {
         }
     }
 
-    public void sendTemplateMail() {
+    public void sendTemplateMail(final String to, final String subject, final Map<String, String> paraMap) {
         //创建邮件正文
         final Context context = new Context();
-        context.setVariable("condition", "hahaha1212");
+        if (paraMap != null) {
+            paraMap.entrySet()
+                    .stream()
+                    .forEach(event -> {
+                        context.setVariable(event.getKey(), event.getValue());
+                    });
+        }
         final String emailContent = templateEngine.process("emailTemplate1", context);
-        sendHtmlMail("76167050@qq.com","主题：这是模板邮件",emailContent);
+        sendHtmlMail(to, subject, emailContent);
     }
 
 }
