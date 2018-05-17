@@ -17,7 +17,10 @@
     <p class="title">Conrantulations！</p>
     <p><span></span></p>
     <p>Your token is successfully created.</p>
-    <p><a th:href="@{https://testexplorer.trustnote.org/detail#{condition}(condition=${condition}) }"> 点击跳转</a></p>
+    <p><a th:href="@{https://testexplorer.trustnote.org/detail#}">
+            <p th:text="${condition}"></p>
+        </a>
+    </p>
     <p>You can check your asset from your TrustNote Wallet, and also you can tranfer the asset to your friend.</p>
 </div>
 </body>

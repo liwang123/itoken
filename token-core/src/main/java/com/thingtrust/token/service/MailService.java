@@ -11,7 +11,9 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.UnsupportedEncodingException;
 
 
 /**
@@ -34,6 +36,9 @@ public class MailService {
 
     @Value("${spring.mail.username}")
     private String from;
+
+    @Value("${thingTrust.mail.alias}")
+    private String alias;
 
     public void sendTextMail(String to, String subject, String content){
         SimpleMailMessage message = new SimpleMailMessage();
@@ -58,10 +63,15 @@ public class MailService {
 
     public void sendHtmlMail(String to, String subject, String content) {
         MimeMessage message = javaMailSender.createMimeMessage();
+
         try {
             //true表示需要创建一个multipart message
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
-            helper.setFrom(from);
+            try {
+                helper.setFrom(new InternetAddress(from,alias));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
             helper.setTo(to);
             helper.setSubject(subject);
             helper.setText(content, true);
@@ -75,7 +85,7 @@ public class MailService {
     public void sendTemplateMail() {
         //创建邮件正文
         Context context = new Context();
-        context.setVariable("condition", "hahaha1212");
+        context.setVariable("condition", "#hahaha1212");
         String emailContent = templateEngine.process("emailTemplate1", context);
 
         sendHtmlMail("76167050@qq.com","主题：这是模板邮件",emailContent);

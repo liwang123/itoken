@@ -44,7 +44,6 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     public LocaleResolver localeResolver() {
         SessionLocaleResolver slr = new SessionLocaleResolver();
         // 默认语言
-        slr.setDefaultLocale(Locale.US);
         return slr;
     }
 

@@ -25,7 +25,7 @@ public class TokenController {
     @Autowired
     private MailService mailService;
 
-    @PostMapping(value = "/test")
+    @GetMapping(value = "/test")
     public ResponseResult getString(Long id){
         String str = tokenService.getDemo(id);
         return ResponseResult.failure(BizErrorCodeEnum.PROGRMER_ERROR);
