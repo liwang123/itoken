@@ -1,5 +1,8 @@
 package com.thingtrust.token.service;
 
+import com.thingtrust.token.data.EmailTemplateRepository;
+import com.thingtrust.token.domain.EmailTemplate;
+import com.thingtrust.token.domain.example.EmailTemplateExample;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,9 +34,12 @@ public class MailService {
     @Autowired
     private TemplateEngine templateEngine;
 
-
     @Autowired
     private JavaMailSender javaMailSender;
+
+    @Autowired
+    private EmailTemplateRepository emailTemplateRepository;
+
 
     @Value("${spring.mail.username}")
     private String from;
@@ -62,10 +68,8 @@ public class MailService {
      * @param content
      */
 
-    public void sendHtmlMail(final String to, final String subject, final String content) {
-
+    private void sendHtmlMail(final String to, final String subject, final String content) {
         final MimeMessage message = javaMailSender.createMimeMessage();
-
         try {
             //true表示需要创建一个multipart message
             final MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -84,8 +88,13 @@ public class MailService {
         }
     }
 
-    public void sendTemplateMail(final String to, final String subject, final String templateName, final Map<String, String> paraMap) {
+    public void sendTemplateMail(final String to, final int type, final Map<String, String> paraMap) {
         //创建邮件正文
+        final EmailTemplateExample emailTemplateExample = new EmailTemplateExample();
+        emailTemplateExample.createCriteria()
+                .andTypeEqualTo(type);
+
+        final EmailTemplate emailTemplate = emailTemplateRepository.selectOneByExample(emailTemplateExample);
         final Context context = new Context();
         if (paraMap != null) {
             paraMap.entrySet()
@@ -94,8 +103,8 @@ public class MailService {
                         context.setVariable(event.getKey(), event.getValue());
                     });
         }
-        final String emailContent = templateEngine.process(templateName, context);
-        sendHtmlMail(to, subject, emailContent);
+        final String emailContent = templateEngine.process(emailTemplate.getTemplateName(), context);
+        sendHtmlMail(to, emailTemplate.getSubject(), emailContent);
     }
 
 }
