@@ -46,3 +46,8 @@ logging:
 spring:
   messages:
     basename: messages/messages
+  mail:
+    host: smtp.163.com
+    username: 18501055456@163.com
+    password: 1q2w3e4r
+    default-encoding: utf-8
