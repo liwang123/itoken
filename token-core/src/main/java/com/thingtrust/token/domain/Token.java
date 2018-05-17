@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -70,11 +71,11 @@ public class Token {
 		/**
      * 创建时间
      */
-	 private Date crtTime; 
+	 private LocalDateTime crtTime;
 		/**
      * 操作时间
      */
-	 private Date operatorTime; 
+	 private LocalDateTime operatorTime;
 		/**
      * 邮箱id
      */
