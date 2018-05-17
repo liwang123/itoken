@@ -14,8 +14,6 @@ public enum BizErrorCodeEnum implements ErrorCode{
 
     private final int code;
 
-    private
-
     BizErrorCodeEnum(int code) {
         this.code = code;
     }

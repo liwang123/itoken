@@ -28,12 +28,13 @@ public class TokenController {
     @PostMapping(value = "/test")
     public ResponseResult getString(Long id){
         String str = tokenService.getDemo(id);
-        return ResponseResult.success();
+        return ResponseResult.failure(BizErrorCodeEnum.PROGRMER_ERROR);
     }
 
     @GetMapping(value = "/mail")
     public ResponseResult sendMail(int id){
-        mailService.sendTextMail("76167050@qq.com","最近怎样！","挺好的!");
+
+        mailService.sendTemplateMail();
         return ResponseResult.success();
     }
 }

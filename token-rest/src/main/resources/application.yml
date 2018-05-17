@@ -59,4 +59,3 @@ spring:
       mail.smtp.auth: true
       mail.smtp.ssl.enable: true
     protocol: smtp
-

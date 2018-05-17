@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <style type="text/css">
+        div{ width: 640px; margin: 0 auto; }
+        p{ margin: 0 ; padding: 0; font-size: 16px; line-height: 26px; text-align: center; }
+        p:last-child{ margin-top: 30px; }
+        p span{ display: inline-block; width: 60%; height: 1px; background: #0b0b0b; margin: 10px 10px; }
+        .name{ text-align: left; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+<div style="font-size: 18px;">
+    <p class="name">Dear user!</p>
+    <p class="title">Conrantulations！</p>
+    <p><span></span></p>
+    <p>Your token is successfully created.</p>
+    <p><a th:href="@{https://testexplorer.trustnote.org/detail#{condition}(condition=${condition}) }"> 点击跳转</a></p>
+    <p>You can check your asset from your TrustNote Wallet, and also you can tranfer the asset to your friend.</p>
+</div>
+</body>
+</html>
