@@ -6,8 +6,8 @@ import java.util.List;
 
 /**
  *  查询条件example类
- * @author wangyu
- * @date 2018-05-05
+ * @author wang yu
+ * @date 2018-05-17
  */
 public class TokenExample {
     protected String orderByClause;
@@ -120,52 +120,52 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andIdEqualTo(Integer value) {
+        public Criteria andIdEqualTo(Long value) {
             addCriterion("id =", value, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdNotEqualTo(Integer value) {
+        public Criteria andIdNotEqualTo(Long value) {
             addCriterion("id <>", value, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdIn(List<Integer> values) {
+        public Criteria andIdIn(List<Long> values) {
             addCriterion("id in", values, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdNotIn(List<Integer> values) {
+        public Criteria andIdNotIn(List<Long> values) {
             addCriterion("id not in", values, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdBetween(Integer value1, Integer value2) {
+        public Criteria andIdBetween(Long value1, Long value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andIdNotBetween(Long value1, Long value2) {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria)this;
         }
 		
-				public Criteria andIdGreaterThan(Integer value) {
+				public Criteria andIdGreaterThan(Long value) {
             addCriterion("id >", value, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
             addCriterion("id >=", value, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdLessThan(Integer value) {
+        public Criteria andIdLessThan(Long value) {
             addCriterion("id <", value, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Integer value) {
+        public Criteria andIdLessThanOrEqualTo(Long value) {
             addCriterion("id <=", value, "id");
             return (Criteria)this;
         }
@@ -330,6 +330,56 @@ public class TokenExample {
             return (Criteria)this;
         }
 				
+			        public Criteria andAssetIdIsNull() {
+            addCriterion("asset_id is null");
+            return (Criteria)this;
+        }
+
+        public Criteria andAssetIdIsNotNull() {
+            addCriterion("asset_id is not null");
+            return (Criteria)this;
+        }
+
+        public Criteria andAssetIdEqualTo(String value) {
+            addCriterion("asset_id =", value, "assetId");
+            return (Criteria)this;
+        }
+
+        public Criteria andAssetIdNotEqualTo(String value) {
+            addCriterion("asset_id <>", value, "assetId");
+            return (Criteria)this;
+        }
+
+        public Criteria andAssetIdIn(List<String> values) {
+            addCriterion("asset_id in", values, "assetId");
+            return (Criteria)this;
+        }
+
+        public Criteria andAssetIdNotIn(List<String> values) {
+            addCriterion("asset_id not in", values, "assetId");
+            return (Criteria)this;
+        }
+
+        public Criteria andAssetIdBetween(String value1, String value2) {
+            addCriterion("asset_id between", value1, value2, "assetId");
+            return (Criteria)this;
+        }
+
+        public Criteria andAssetIdNotBetween(String value1, String value2) {
+            addCriterion("asset_id not between", value1, value2, "assetId");
+            return (Criteria)this;
+        }
+		
+				
+				public Criteria andAssetIdLike(String value) {
+            addCriterion("asset_id like", value, "assetId");
+            return (Criteria)this;
+        }
+
+        public Criteria andAssetIdNotLike(String value) {
+            addCriterion("asset_id not like", value, "assetId");
+            return (Criteria)this;
+        }
 			        public Criteria andIssuserNameIsNull() {
             addCriterion("issuser_name is null");
             return (Criteria)this;
@@ -598,6 +648,56 @@ public class TokenExample {
 
         public Criteria andEmailNotLike(String value) {
             addCriterion("email not like", value, "email");
+            return (Criteria)this;
+        }
+			        public Criteria andDescriptIsNull() {
+            addCriterion("descript is null");
+            return (Criteria)this;
+        }
+
+        public Criteria andDescriptIsNotNull() {
+            addCriterion("descript is not null");
+            return (Criteria)this;
+        }
+
+        public Criteria andDescriptEqualTo(String value) {
+            addCriterion("descript =", value, "descript");
+            return (Criteria)this;
+        }
+
+        public Criteria andDescriptNotEqualTo(String value) {
+            addCriterion("descript <>", value, "descript");
+            return (Criteria)this;
+        }
+
+        public Criteria andDescriptIn(List<String> values) {
+            addCriterion("descript in", values, "descript");
+            return (Criteria)this;
+        }
+
+        public Criteria andDescriptNotIn(List<String> values) {
+            addCriterion("descript not in", values, "descript");
+            return (Criteria)this;
+        }
+
+        public Criteria andDescriptBetween(String value1, String value2) {
+            addCriterion("descript between", value1, value2, "descript");
+            return (Criteria)this;
+        }
+
+        public Criteria andDescriptNotBetween(String value1, String value2) {
+            addCriterion("descript not between", value1, value2, "descript");
+            return (Criteria)this;
+        }
+		
+				
+				public Criteria andDescriptLike(String value) {
+            addCriterion("descript like", value, "descript");
+            return (Criteria)this;
+        }
+
+        public Criteria andDescriptNotLike(String value) {
+            addCriterion("descript not like", value, "descript");
             return (Criteria)this;
         }
 			        public Criteria andOperatorIsNull() {

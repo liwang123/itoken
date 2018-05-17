@@ -11,18 +11,18 @@ import java.util.Date;
 
 /**
  * 
- * @author wangyu
- * @date 2018-05-05
+ * @author wang yu
+ * @date 2018-05-17
  */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Token {
-	/**
+		/**
      * 
      */
-	 private Integer id; 
+	 private Long id; 
 		/**
      * 资产名称
      */
@@ -35,6 +35,10 @@ public class Token {
      * 发行数量
      */
 	 private Long cap; 
+		/**
+     * 资产id
+     */
+	 private String assetId; 
 		/**
      * 发行者
      */
@@ -55,6 +59,10 @@ public class Token {
      * 邮箱
      */
 	 private String email; 
+		/**
+     * 描述
+     */
+	 private String descript; 
 		/**
      * 操作者
      */

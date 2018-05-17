@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.thingtrust.token.data.TokenRepository">
-																		  <!-- CodeBuilder  Generated-->
-  <resultMap id="TokenMap" type="com.thingtrust.token.domain.Token">
+<mapper namespace="com.thingtrust.token.data.PaymentTokenRepository">
+											  <!-- CodeBuilder  Generated-->
+  <resultMap id="PaymentTokenMap" type="com.thingtrust.token.domain.PaymentToken">
   					 <id column="id" property="id" jdbcType="BIGINT" />
+							<result column="token_id" property="tokenId" jdbcType="BIGINT" />
+							<result column="symbol" property="symbol" jdbcType="VARCHAR" />
 							<result column="asset_name" property="assetName" jdbcType="VARCHAR" />
-							<result column="ticker" property="ticker" jdbcType="VARCHAR" />
-							<result column="cap" property="cap" jdbcType="BIGINT" />
 							<result column="asset_id" property="assetId" jdbcType="VARCHAR" />
 							<result column="issuser_name" property="issuserName" jdbcType="VARCHAR" />
+							<result column="email_id" property="emailId" jdbcType="BIGINT" />
 							<result column="address" property="address" jdbcType="VARCHAR" />
-							<result column="review_status" property="reviewStatus" jdbcType="INTEGER" />
-							<result column="pay_status" property="payStatus" jdbcType="TINYINT" />
-							<result column="email" property="email" jdbcType="VARCHAR" />
 							<result column="descript" property="descript" jdbcType="VARCHAR" />
-							<result column="operator" property="operator" jdbcType="INTEGER" />
-							<result column="crt_time" property="crtTime" jdbcType="TIMESTAMP" />
-							<result column="operator_time" property="operatorTime" jdbcType="TIMESTAMP" />
-							<result column="email_id" property="emailId" jdbcType="INTEGER" />
-							<result column="tokencol" property="tokencol" jdbcType="VARCHAR" />
-							<result column="tokencol1" property="tokencol1" jdbcType="VARCHAR" />
+							<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
 			  </resultMap>
   <sql id="Example_Where_Clause">
         <where>
@@ -51,88 +44,60 @@
             </foreach>
         </where>
     </sql>
-  <sql id="Table_Name">token</sql>
+  <sql id="Table_Name">payment_token</sql>
 	<sql id="Base_Column_List_Without_Id">
-  	  									asset_name ,								ticker ,								cap ,								asset_id ,								issuser_name ,								address ,								review_status ,								pay_status ,								email ,								descript ,								operator ,								crt_time ,								operator_time ,								email_id ,								tokencol ,								tokencol1 			  </sql>
+  	  									token_id ,								symbol ,								asset_name ,								asset_id ,								issuser_name ,								email_id ,								address ,								descript ,								create_time 			  </sql>
   <sql id="Base_Column_List">
   	  					id ,
-			  			  			  			  			  			  			  			  			  			  			  			  			  			  			  			  				<include refid="Base_Column_List_Without_Id"/>
+			  			  			  			  			  			  			  			  			  				<include refid="Base_Column_List_Without_Id"/>
   </sql>
     <sql id="Insert_Columns">
-     							<if test="record.assetName != null">asset_name,</if>
-							<if test="record.ticker != null">ticker,</if>
-							<if test="record.cap != null">cap,</if>
+     							<if test="record.tokenId != null">token_id,</if>
+							<if test="record.symbol != null">symbol,</if>
+							<if test="record.assetName != null">asset_name,</if>
 							<if test="record.assetId != null">asset_id,</if>
 							<if test="record.issuserName != null">issuser_name,</if>
-							<if test="record.address != null">address,</if>
-							<if test="record.reviewStatus != null">review_status,</if>
-							<if test="record.payStatus != null">pay_status,</if>
-							<if test="record.email != null">email,</if>
-							<if test="record.descript != null">descript,</if>
-							<if test="record.operator != null">operator,</if>
-							<if test="record.crtTime != null">crt_time,</if>
-							<if test="record.operatorTime != null">operator_time,</if>
 							<if test="record.emailId != null">email_id,</if>
-							<if test="record.tokencol != null">tokencol,</if>
-							<if test="record.tokencol1 != null">tokencol1,</if>
+							<if test="record.address != null">address,</if>
+							<if test="record.descript != null">descript,</if>
+							<if test="record.createTime != null">create_time,</if>
 			    </sql>
     <sql id="Insert_Values">
-    							<if test="record.assetName != null">#{record.assetName,jdbcType=VARCHAR},</if>
-							<if test="record.ticker != null">#{record.ticker,jdbcType=VARCHAR},</if>
-							<if test="record.cap != null">#{record.cap,jdbcType=BIGINT},</if>
+    							<if test="record.tokenId != null">#{record.tokenId,jdbcType=BIGINT},</if>
+							<if test="record.symbol != null">#{record.symbol,jdbcType=VARCHAR},</if>
+							<if test="record.assetName != null">#{record.assetName,jdbcType=VARCHAR},</if>
 							<if test="record.assetId != null">#{record.assetId,jdbcType=VARCHAR},</if>
 							<if test="record.issuserName != null">#{record.issuserName,jdbcType=VARCHAR},</if>
+							<if test="record.emailId != null">#{record.emailId,jdbcType=BIGINT},</if>
 							<if test="record.address != null">#{record.address,jdbcType=VARCHAR},</if>
-							<if test="record.reviewStatus != null">#{record.reviewStatus,jdbcType=INTEGER},</if>
-							<if test="record.payStatus != null">#{record.payStatus,jdbcType=TINYINT},</if>
-							<if test="record.email != null">#{record.email,jdbcType=VARCHAR},</if>
 							<if test="record.descript != null">#{record.descript,jdbcType=VARCHAR},</if>
-							<if test="record.operator != null">#{record.operator,jdbcType=INTEGER},</if>
-							<if test="record.crtTime != null">#{record.crtTime,jdbcType=TIMESTAMP},</if>
-							<if test="record.operatorTime != null">#{record.operatorTime,jdbcType=TIMESTAMP},</if>
-							<if test="record.emailId != null">#{record.emailId,jdbcType=INTEGER},</if>
-							<if test="record.tokencol != null">#{record.tokencol,jdbcType=VARCHAR},</if>
-							<if test="record.tokencol1 != null">#{record.tokencol1,jdbcType=VARCHAR},</if>
+							<if test="record.createTime != null">#{record.createTime,jdbcType=TIMESTAMP},</if>
 			    </sql>
     <sql id="Batch_Insert_Values">
-								 #{record.assetName,jdbcType=VARCHAR},
-		 					 #{record.ticker,jdbcType=VARCHAR},
-		 					 #{record.cap,jdbcType=BIGINT},
+								 #{record.tokenId,jdbcType=BIGINT},
+		 					 #{record.symbol,jdbcType=VARCHAR},
+		 					 #{record.assetName,jdbcType=VARCHAR},
 		 					 #{record.assetId,jdbcType=VARCHAR},
 		 					 #{record.issuserName,jdbcType=VARCHAR},
+		 					 #{record.emailId,jdbcType=BIGINT},
 		 					 #{record.address,jdbcType=VARCHAR},
-		 					 #{record.reviewStatus,jdbcType=INTEGER},
-		 					 #{record.payStatus,jdbcType=TINYINT},
-		 					 #{record.email,jdbcType=VARCHAR},
 		 					 #{record.descript,jdbcType=VARCHAR},
-		 					 #{record.operator,jdbcType=INTEGER},
-		 					 #{record.crtTime,jdbcType=TIMESTAMP},
-		 					 #{record.operatorTime,jdbcType=TIMESTAMP},
-		 					 #{record.emailId,jdbcType=INTEGER},
-		 					 #{record.tokencol,jdbcType=VARCHAR},
-		 					 #{record.tokencol1,jdbcType=VARCHAR},
+		 					 #{record.createTime,jdbcType=TIMESTAMP},
 		 	    </sql>
 	<sql id="Batch_Insert_Values_On_DuplicateKey">
 									#{record.id,jdbcType=BIGINT},
-																																																																																							<include refid="Batch_Insert_Values"/>
+																																																				<include refid="Batch_Insert_Values"/>
 	</sql>
     <sql id="Update_Set_From_Bean">
-	 							<if test="record.assetName != null">asset_name = #{record.assetName,jdbcType=VARCHAR} ,</if>
-							<if test="record.ticker != null">ticker = #{record.ticker,jdbcType=VARCHAR} ,</if>
-							<if test="record.cap != null">cap = #{record.cap,jdbcType=BIGINT} ,</if>
+	 							<if test="record.tokenId != null">token_id = #{record.tokenId,jdbcType=BIGINT} ,</if>
+							<if test="record.symbol != null">symbol = #{record.symbol,jdbcType=VARCHAR} ,</if>
+							<if test="record.assetName != null">asset_name = #{record.assetName,jdbcType=VARCHAR} ,</if>
 							<if test="record.assetId != null">asset_id = #{record.assetId,jdbcType=VARCHAR} ,</if>
 							<if test="record.issuserName != null">issuser_name = #{record.issuserName,jdbcType=VARCHAR} ,</if>
+							<if test="record.emailId != null">email_id = #{record.emailId,jdbcType=BIGINT} ,</if>
 							<if test="record.address != null">address = #{record.address,jdbcType=VARCHAR} ,</if>
-							<if test="record.reviewStatus != null">review_status = #{record.reviewStatus,jdbcType=INTEGER} ,</if>
-							<if test="record.payStatus != null">pay_status = #{record.payStatus,jdbcType=TINYINT} ,</if>
-							<if test="record.email != null">email = #{record.email,jdbcType=VARCHAR} ,</if>
 							<if test="record.descript != null">descript = #{record.descript,jdbcType=VARCHAR} ,</if>
-							<if test="record.operator != null">operator = #{record.operator,jdbcType=INTEGER} ,</if>
-							<if test="record.crtTime != null">crt_time = #{record.crtTime,jdbcType=TIMESTAMP} ,</if>
-							<if test="record.operatorTime != null">operator_time = #{record.operatorTime,jdbcType=TIMESTAMP} ,</if>
-							<if test="record.emailId != null">email_id = #{record.emailId,jdbcType=INTEGER} ,</if>
-							<if test="record.tokencol != null">tokencol = #{record.tokencol,jdbcType=VARCHAR} ,</if>
-							<if test="record.tokencol1 != null">tokencol1 = #{record.tokencol1,jdbcType=VARCHAR} ,</if>
+							<if test="record.createTime != null">create_time = #{record.createTime,jdbcType=TIMESTAMP} ,</if>
 			    </sql>
 	<!-- insert -->
 	<insert id="insert" parameterType="java.util.Map">
@@ -171,7 +136,7 @@
 			</trim>
 		</foreach>
 		ON DUPLICATE KEY UPDATE 
-																asset_name = VALUES(asset_name)  ,												ticker = VALUES(ticker)  ,												cap = VALUES(cap)  ,												asset_id = VALUES(asset_id)  ,												issuser_name = VALUES(issuser_name)  ,												address = VALUES(address)  ,												review_status = VALUES(review_status)  ,												pay_status = VALUES(pay_status)  ,												email = VALUES(email)  ,												descript = VALUES(descript)  ,												operator = VALUES(operator)  ,												crt_time = VALUES(crt_time)  ,												operator_time = VALUES(operator_time)  ,												email_id = VALUES(email_id)  ,												tokencol = VALUES(tokencol)  ,												tokencol1 = VALUES(tokencol1)  						</insert>
+																token_id = VALUES(token_id)  ,												symbol = VALUES(symbol)  ,												asset_name = VALUES(asset_name)  ,												asset_id = VALUES(asset_id)  ,												issuser_name = VALUES(issuser_name)  ,												email_id = VALUES(email_id)  ,												address = VALUES(address)  ,												descript = VALUES(descript)  ,												create_time = VALUES(create_time)  						</insert>
 	<!-- end insert -->
     <!-- delete -->
     <delete id="deleteById" parameterType="java.util.Map">
@@ -218,13 +183,13 @@
     </update>
 	 <!-- end update -->
     <!-- select -->
-    <select id="selectById" resultMap="TokenMap" parameterType="java.util.Map">
+    <select id="selectById" resultMap="PaymentTokenMap" parameterType="java.util.Map">
         select
         <include refid="Base_Column_List"/>
         from <include refid="Table_Name"/>
         where id = #{id,jdbcType=BIGINT}
     </select>
-    <select id="selectByExample" resultMap="TokenMap" parameterType="java.util.Map">
+    <select id="selectByExample" resultMap="PaymentTokenMap" parameterType="java.util.Map">
       select
       <if test="example != null and example.distinct">
         distinct
@@ -238,7 +203,7 @@
         order by ${example.orderByClause}
       </if>
     </select>
-    <select id="selectOneByExample" resultMap="TokenMap" parameterType="java.util.Map">
+    <select id="selectOneByExample" resultMap="PaymentTokenMap" parameterType="java.util.Map">
         select
         <include refid="Base_Column_List"/>
         from <include refid="Table_Name"/>
@@ -247,7 +212,7 @@
         </if>
         limit 1
     </select>
-    <select id="selectIn" resultMap="TokenMap" parameterType="java.util.Map">
+    <select id="selectIn" resultMap="PaymentTokenMap" parameterType="java.util.Map">
         select
         <include refid="Base_Column_List"/>
         from <include refid="Table_Name"/>
@@ -268,7 +233,7 @@
             <include refid="Example_Where_Clause"/>
         </if>
     </select>
-    <select id="selectByPager" resultMap="TokenMap" parameterType="java.util.Map">
+    <select id="selectByPager" resultMap="PaymentTokenMap" parameterType="java.util.Map">
         select
         <include refid="Base_Column_List"/>
         from <include refid="Table_Name"/>
