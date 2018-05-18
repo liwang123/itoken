@@ -1,7 +1,17 @@
 package com.thingtrust.token.common.enums;
 
+import lombok.Getter;
+
+/**
+ * @author WangYu
+ */
+
+@Getter
 public enum EmailTemplateEnum {
-    PMM_LEVEL_ENUM_0(0, "", "");
+    /**
+     * 发行资产成功
+     */
+    ISSUE_ASSET_SUCCESS_MAIL(1, "TrustNote email", "emailTemplate1");
 
 
     /**

@@ -1,8 +1,6 @@
 package com.thingtrust.token.service;
 
-import com.thingtrust.token.data.EmailTemplateRepository;
-import com.thingtrust.token.domain.EmailTemplate;
-import com.thingtrust.token.domain.example.EmailTemplateExample;
+import com.thingtrust.token.common.enums.EmailTemplateEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,9 +34,6 @@ public class MailService {
 
     @Autowired
     private JavaMailSender javaMailSender;
-
-    @Autowired
-    private EmailTemplateRepository emailTemplateRepository;
 
 
     @Value("${spring.mail.username}")
@@ -88,13 +83,9 @@ public class MailService {
         }
     }
 
-    public void sendTemplateMail(final String to, final int type, final Map<String, String> paraMap) {
+    public void sendTemplateMail(final String to, final EmailTemplateEnum emailTemplateEnum, final Map<String, String> paraMap) {
         //创建邮件正文
-        final EmailTemplateExample emailTemplateExample = new EmailTemplateExample();
-        emailTemplateExample.createCriteria()
-                .andTypeEqualTo(type);
 
-        final EmailTemplate emailTemplate = emailTemplateRepository.selectOneByExample(emailTemplateExample);
         final Context context = new Context();
         if (paraMap != null) {
             paraMap.entrySet()
@@ -103,8 +94,8 @@ public class MailService {
                         context.setVariable(event.getKey(), event.getValue());
                     });
         }
-        final String emailContent = templateEngine.process(emailTemplate.getTemplateName(), context);
-        sendHtmlMail(to, emailTemplate.getSubject(), emailContent);
+        final String emailContent = templateEngine.process(emailTemplateEnum.getTemplateName(), context);
+        sendHtmlMail(to, emailTemplateEnum.getSubject(), emailContent);
     }
 
 }

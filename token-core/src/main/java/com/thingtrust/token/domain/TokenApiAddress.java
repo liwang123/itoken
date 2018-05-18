@@ -1,8 +1,11 @@
 package com.thingtrust.token.domain;
 
-import lombok.Data;
+import lombok.*;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class TokenApiAddress {
     private String assetName;
 

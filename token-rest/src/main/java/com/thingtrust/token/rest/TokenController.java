@@ -4,6 +4,7 @@ package com.thingtrust.token.rest;
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
 import com.thingtrust.token.common.enums.BizErrorCodeEnum;
+import com.thingtrust.token.common.enums.EmailTemplateEnum;
 import com.thingtrust.token.common.model.ResponseResult;
 import com.thingtrust.token.domain.Token;
 import com.thingtrust.token.domain.TokenApi;
@@ -40,9 +41,8 @@ public class TokenController {
     @GetMapping(value = "/mail")
     public ResponseResult sendMail(final int id) {
         final Map map = Maps.newHashMap();
-        map.put("condition", "condition");
-        mailService.sendTemplateMail("76167050@qq.com", 1, map);
-
+        map.put("condition", "hahahahah");
+        mailService.sendTemplateMail("76167050@qq.com", EmailTemplateEnum.ISSUE_ASSET_SUCCESS_MAIL, map);
         return ResponseResult.success();
     }
 
