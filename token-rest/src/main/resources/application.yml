@@ -11,7 +11,6 @@ server:
     min-spare-threads: 25
   connection-timeout: 5s
 
-
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
@@ -50,11 +49,11 @@ spring:
   messages:
     basename: messages/messages
   mail:
-    host: smtp.exmail.qq.com
-    username: support@trustnote.org
-    password: ThingTrust123
+    host: @spring.mail.host@
+    username: '@spring.mail.username@'
+    password: @spring.mail.password@
     default-encoding: utf-8
-    port: 465
+    port: @spring.mail.port@
     properties:
       mail.smtp.auth: true
       mail.smtp.ssl.enable: true
@@ -63,4 +62,6 @@ spring:
 
 thingTrust:
   mail:
-    alias: TrustNote
+    alias: @thingTrust.mail.alias@
+
+
