@@ -1,4 +1,4 @@
-package com.thingtrust.token.domain;
+package com.thingtrust.token.entity;
 
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.thingtrust.token.domain;
+package com.thingtrust.token.entity;
 
 import lombok.*;
 
@@ -17,9 +17,6 @@ public class TokenApiAddress {
 
     private String address;
 
-    public String getAddress() {
-        return address;
-    }
 
     @Override
     public String toString() {

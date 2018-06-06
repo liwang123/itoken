@@ -7,12 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 /**
  * 
  * @author wang yu
- * @date 2018-05-17
+ * @date 2018-06-05
  */
 @Data
 @Builder
@@ -22,29 +23,29 @@ public class Email {
 		/**
      * 
      */
-	 private Integer id; 
+	 private Integer id;
 		/**
      * 
      */
-	 private String email; 
+	 private String email;
 		/**
      * 
      */
-	 private Integer status; 
+	 private Integer status;
 		/**
      * 
      */
-	 private Integer operator; 
+	 private Integer operator;
 		/**
      * 
      */
-	 private Date time; 
+	 private LocalDateTime time;
 		/**
      * 
      */
-	 private String emailcol; 
+	 private String emailcol;
 		/**
      * 
      */
-	 private String emailcol1; 
+	 private String emailcol1;
 	}

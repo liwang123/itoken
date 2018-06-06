@@ -1,19 +1,13 @@
 package com.thingtrust.token.domain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 /**
  * 
  * @author wang yu
- * @date 2018-05-17
+ * @date 2018-06-05
  */
 @Data
 @Builder
@@ -23,51 +17,51 @@ public class Token {
 		/**
      * 
      */
-	 private Long id; 
+		private Long id;
 		/**
      * 资产名称
      */
-	 private String assetName; 
+		private String assetName;
 		/**
      * 资产单位
      */
-	 private String ticker; 
+		private String ticker;
 		/**
      * 发行数量
      */
-	 private Long cap; 
+		private Long cap;
 		/**
      * 资产id
      */
-	 private String assetId; 
+		private String assetId;
 		/**
      * 发行者
      */
-	 private String issuserName; 
+		private String issuserName;
 		/**
      * 收款地址
      */
-	 private String address; 
+		private String address;
 		/**
      * 审核地址
      */
-	 private Integer reviewStatus; 
+		private Integer reviewStatus;
 		/**
      * 付款地址
      */
-	 private Integer payStatus; 
+		private Integer payStatus;
 		/**
      * 邮箱
      */
-	 private String email; 
+		private String email;
 		/**
      * 描述
      */
-	 private String descript; 
+		private String descript;
 		/**
      * 操作者
      */
-	 private Integer operator; 
+		private Integer operator;
 		/**
      * 创建时间
      */
@@ -79,13 +73,13 @@ public class Token {
 		/**
      * 邮箱id
      */
-	 private Integer emailId; 
+		private Integer emailId;
 		/**
      * 
      */
-	 private String tokencol; 
+		private String tokencol;
 		/**
      * 
      */
-	 private String tokencol1; 
-	}
+		private String tokencol1;
+}

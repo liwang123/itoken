@@ -1,13 +1,14 @@
 package com.thingtrust.token.domain.example;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
  *  查询条件example类
  * @author wang yu
- * @date 2018-05-17
+ * @date 2018-06-05
  */
 public class PaymentTokenExample {
     protected String orderByClause;
@@ -149,7 +150,7 @@ public class PaymentTokenExample {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria)this;
         }
-		
+
 				public Criteria andIdGreaterThan(Long value) {
             addCriterion("id >", value, "id");
             return (Criteria)this;
@@ -169,7 +170,7 @@ public class PaymentTokenExample {
             addCriterion("id <=", value, "id");
             return (Criteria)this;
         }
-				
+		
 			        public Criteria andTokenIdIsNull() {
             addCriterion("token_id is null");
             return (Criteria)this;
@@ -209,7 +210,7 @@ public class PaymentTokenExample {
             addCriterion("token_id not between", value1, value2, "tokenId");
             return (Criteria)this;
         }
-		
+
 				public Criteria andTokenIdGreaterThan(Long value) {
             addCriterion("token_id >", value, "tokenId");
             return (Criteria)this;
@@ -229,7 +230,7 @@ public class PaymentTokenExample {
             addCriterion("token_id <=", value, "tokenId");
             return (Criteria)this;
         }
-				
+		
 			        public Criteria andSymbolIsNull() {
             addCriterion("symbol is null");
             return (Criteria)this;
@@ -269,8 +270,8 @@ public class PaymentTokenExample {
             addCriterion("symbol not between", value1, value2, "symbol");
             return (Criteria)this;
         }
+
 		
-				
 				public Criteria andSymbolLike(String value) {
             addCriterion("symbol like", value, "symbol");
             return (Criteria)this;
@@ -319,8 +320,8 @@ public class PaymentTokenExample {
             addCriterion("asset_name not between", value1, value2, "assetName");
             return (Criteria)this;
         }
+
 		
-				
 				public Criteria andAssetNameLike(String value) {
             addCriterion("asset_name like", value, "assetName");
             return (Criteria)this;
@@ -369,8 +370,8 @@ public class PaymentTokenExample {
             addCriterion("asset_id not between", value1, value2, "assetId");
             return (Criteria)this;
         }
+
 		
-				
 				public Criteria andAssetIdLike(String value) {
             addCriterion("asset_id like", value, "assetId");
             return (Criteria)this;
@@ -419,8 +420,8 @@ public class PaymentTokenExample {
             addCriterion("issuser_name not between", value1, value2, "issuserName");
             return (Criteria)this;
         }
+
 		
-				
 				public Criteria andIssuserNameLike(String value) {
             addCriterion("issuser_name like", value, "issuserName");
             return (Criteria)this;
@@ -469,7 +470,7 @@ public class PaymentTokenExample {
             addCriterion("email_id not between", value1, value2, "emailId");
             return (Criteria)this;
         }
-		
+
 				public Criteria andEmailIdGreaterThan(Long value) {
             addCriterion("email_id >", value, "emailId");
             return (Criteria)this;
@@ -489,7 +490,7 @@ public class PaymentTokenExample {
             addCriterion("email_id <=", value, "emailId");
             return (Criteria)this;
         }
-				
+		
 			        public Criteria andAddressIsNull() {
             addCriterion("address is null");
             return (Criteria)this;
@@ -529,8 +530,8 @@ public class PaymentTokenExample {
             addCriterion("address not between", value1, value2, "address");
             return (Criteria)this;
         }
+
 		
-				
 				public Criteria andAddressLike(String value) {
             addCriterion("address like", value, "address");
             return (Criteria)this;
@@ -579,8 +580,8 @@ public class PaymentTokenExample {
             addCriterion("descript not between", value1, value2, "descript");
             return (Criteria)this;
         }
+
 		
-				
 				public Criteria andDescriptLike(String value) {
             addCriterion("descript like", value, "descript");
             return (Criteria)this;
@@ -600,56 +601,56 @@ public class PaymentTokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andCreateTimeEqualTo(Date value) {
+        public Criteria andCreateTimeEqualTo(LocalDateTime value) {
             addCriterion("create_time =", value, "createTime");
             return (Criteria)this;
         }
 
-        public Criteria andCreateTimeNotEqualTo(Date value) {
+        public Criteria andCreateTimeNotEqualTo(LocalDateTime value) {
             addCriterion("create_time <>", value, "createTime");
             return (Criteria)this;
         }
 
-        public Criteria andCreateTimeIn(List<Date> values) {
+        public Criteria andCreateTimeIn(List<LocalDateTime> values) {
             addCriterion("create_time in", values, "createTime");
             return (Criteria)this;
         }
 
-        public Criteria andCreateTimeNotIn(List<Date> values) {
+        public Criteria andCreateTimeNotIn(List<LocalDateTime> values) {
             addCriterion("create_time not in", values, "createTime");
             return (Criteria)this;
         }
 
-        public Criteria andCreateTimeBetween(Date value1, Date value2) {
+        public Criteria andCreateTimeBetween(LocalDateTime value1, LocalDateTime value2) {
             addCriterion("create_time between", value1, value2, "createTime");
             return (Criteria)this;
         }
 
-        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
+        public Criteria andCreateTimeNotBetween(LocalDateTime value1, LocalDateTime value2) {
             addCriterion("create_time not between", value1, value2, "createTime");
             return (Criteria)this;
         }
-		
-				public Criteria andCreateTimeGreaterThan(Date value) {
+
+				public Criteria andCreateTimeGreaterThan(LocalDateTime value) {
             addCriterion("create_time >", value, "createTime");
             return (Criteria)this;
         }
 
-        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
+        public Criteria andCreateTimeGreaterThanOrEqualTo(LocalDateTime value) {
             addCriterion("create_time >=", value, "createTime");
             return (Criteria)this;
         }
 
-        public Criteria andCreateTimeLessThan(Date value) {
+        public Criteria andCreateTimeLessThan(LocalDateTime value) {
             addCriterion("create_time <", value, "createTime");
             return (Criteria)this;
         }
 
-        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
+        public Criteria andCreateTimeLessThanOrEqualTo(LocalDateTime value) {
             addCriterion("create_time <=", value, "createTime");
             return (Criteria)this;
         }
-				
+		
 			    }
 
     public static class Criteria extends GeneratedCriteria {

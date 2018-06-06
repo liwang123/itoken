@@ -1,13 +1,14 @@
 package com.thingtrust.token.domain.example;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
  *  查询条件example类
  * @author wang yu
- * @date 2018-05-17
+ * @date 2018-06-05
  */
 public class EmailExample {
     protected String orderByClause;
@@ -149,7 +150,7 @@ public class EmailExample {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria)this;
         }
-		
+
 				public Criteria andIdGreaterThan(Integer value) {
             addCriterion("id >", value, "id");
             return (Criteria)this;
@@ -169,7 +170,7 @@ public class EmailExample {
             addCriterion("id <=", value, "id");
             return (Criteria)this;
         }
-				
+		
 			        public Criteria andEmailIsNull() {
             addCriterion("email is null");
             return (Criteria)this;
@@ -209,8 +210,8 @@ public class EmailExample {
             addCriterion("email not between", value1, value2, "email");
             return (Criteria)this;
         }
+
 		
-				
 				public Criteria andEmailLike(String value) {
             addCriterion("email like", value, "email");
             return (Criteria)this;
@@ -259,7 +260,7 @@ public class EmailExample {
             addCriterion("status not between", value1, value2, "status");
             return (Criteria)this;
         }
-		
+
 				public Criteria andStatusGreaterThan(Integer value) {
             addCriterion("status >", value, "status");
             return (Criteria)this;
@@ -279,7 +280,7 @@ public class EmailExample {
             addCriterion("status <=", value, "status");
             return (Criteria)this;
         }
-				
+		
 			        public Criteria andOperatorIsNull() {
             addCriterion("operator is null");
             return (Criteria)this;
@@ -319,7 +320,7 @@ public class EmailExample {
             addCriterion("operator not between", value1, value2, "operator");
             return (Criteria)this;
         }
-		
+
 				public Criteria andOperatorGreaterThan(Integer value) {
             addCriterion("operator >", value, "operator");
             return (Criteria)this;
@@ -339,7 +340,7 @@ public class EmailExample {
             addCriterion("operator <=", value, "operator");
             return (Criteria)this;
         }
-				
+		
 			        public Criteria andTimeIsNull() {
             addCriterion("time is null");
             return (Criteria)this;
@@ -350,56 +351,56 @@ public class EmailExample {
             return (Criteria)this;
         }
 
-        public Criteria andTimeEqualTo(Date value) {
+        public Criteria andTimeEqualTo(LocalDateTime value) {
             addCriterion("time =", value, "time");
             return (Criteria)this;
         }
 
-        public Criteria andTimeNotEqualTo(Date value) {
+        public Criteria andTimeNotEqualTo(LocalDateTime value) {
             addCriterion("time <>", value, "time");
             return (Criteria)this;
         }
 
-        public Criteria andTimeIn(List<Date> values) {
+        public Criteria andTimeIn(List<LocalDateTime> values) {
             addCriterion("time in", values, "time");
             return (Criteria)this;
         }
 
-        public Criteria andTimeNotIn(List<Date> values) {
+        public Criteria andTimeNotIn(List<LocalDateTime> values) {
             addCriterion("time not in", values, "time");
             return (Criteria)this;
         }
 
-        public Criteria andTimeBetween(Date value1, Date value2) {
+        public Criteria andTimeBetween(LocalDateTime value1, LocalDateTime value2) {
             addCriterion("time between", value1, value2, "time");
             return (Criteria)this;
         }
 
-        public Criteria andTimeNotBetween(Date value1, Date value2) {
+        public Criteria andTimeNotBetween(LocalDateTime value1, LocalDateTime value2) {
             addCriterion("time not between", value1, value2, "time");
             return (Criteria)this;
         }
-		
-				public Criteria andTimeGreaterThan(Date value) {
+
+				public Criteria andTimeGreaterThan(LocalDateTime value) {
             addCriterion("time >", value, "time");
             return (Criteria)this;
         }
 
-        public Criteria andTimeGreaterThanOrEqualTo(Date value) {
+        public Criteria andTimeGreaterThanOrEqualTo(LocalDateTime value) {
             addCriterion("time >=", value, "time");
             return (Criteria)this;
         }
 
-        public Criteria andTimeLessThan(Date value) {
+        public Criteria andTimeLessThan(LocalDateTime value) {
             addCriterion("time <", value, "time");
             return (Criteria)this;
         }
 
-        public Criteria andTimeLessThanOrEqualTo(Date value) {
+        public Criteria andTimeLessThanOrEqualTo(LocalDateTime value) {
             addCriterion("time <=", value, "time");
             return (Criteria)this;
         }
-				
+		
 			        public Criteria andEmailcolIsNull() {
             addCriterion("emailcol is null");
             return (Criteria)this;
@@ -439,8 +440,8 @@ public class EmailExample {
             addCriterion("emailcol not between", value1, value2, "emailcol");
             return (Criteria)this;
         }
+
 		
-				
 				public Criteria andEmailcolLike(String value) {
             addCriterion("emailcol like", value, "emailcol");
             return (Criteria)this;
@@ -489,8 +490,8 @@ public class EmailExample {
             addCriterion("emailcol1 not between", value1, value2, "emailcol1");
             return (Criteria)this;
         }
+
 		
-				
 				public Criteria andEmailcol1Like(String value) {
             addCriterion("emailcol1 like", value, "emailcol1");
             return (Criteria)this;

@@ -15,6 +15,8 @@ mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
 
+
+
 #
 # datasource
 #
@@ -28,6 +30,13 @@ thingtrust:
         password: @thingtrust.token.datasource.master.password@
         max-active: 10
         min-idle: 0
+        data-source-properties:
+          useSSL: false
+          characterEncoding: UTF-8
+          autoReconnect: true
+          rewriteBatchedStatements: true
+    blockchainurl: @thingTrust.url.blockchain@
+    nodeurl: @thingTrust.url.nodejs@
   app:
     name: @token.app.name@
     version: @token.app.version@

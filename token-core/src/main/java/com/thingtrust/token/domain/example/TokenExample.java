@@ -1,13 +1,13 @@
 package com.thingtrust.token.domain.example;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
  *  查询条件example类
  * @author wang yu
- * @date 2018-05-17
+ * @date 2018-06-05
  */
 public class TokenExample {
     protected String orderByClause;
@@ -20,38 +20,38 @@ public class TokenExample {
         oredCriteria = new ArrayList<>();
     }
 
-    public void setOrderByClause(String orderByClause) {
-        this.orderByClause = orderByClause;
-    }
-
     public String getOrderByClause() {
         return orderByClause;
     }
 
-    public void setDistinct(boolean distinct) {
-        this.distinct = distinct;
+    public void setOrderByClause(final String orderByClause) {
+        this.orderByClause = orderByClause;
     }
 
     public boolean isDistinct() {
         return distinct;
     }
 
+    public void setDistinct(final boolean distinct) {
+        this.distinct = distinct;
+    }
+
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
     }
 
-    public void or(Criteria criteria) {
+    public void or(final Criteria criteria) {
         oredCriteria.add(criteria);
     }
 
     public Criteria or() {
-        Criteria criteria = createCriteriaInternal();
+        final Criteria criteria = createCriteriaInternal();
         oredCriteria.add(criteria);
         return criteria;
     }
 
     public Criteria createCriteria() {
-        Criteria criteria = createCriteriaInternal();
+        final Criteria criteria = createCriteriaInternal();
         if (oredCriteria.size() == 0) {
             oredCriteria.add(criteria);
         }
@@ -59,7 +59,7 @@ public class TokenExample {
     }
 
     protected Criteria createCriteriaInternal() {
-        Criteria criteria = new Criteria();
+        final Criteria criteria = new Criteria();
         return criteria;
     }
 
@@ -74,7 +74,7 @@ public class TokenExample {
 
         protected GeneratedCriteria() {
             super();
-            criteria = new ArrayList<Criterion>();
+            criteria = new ArrayList<>();
         }
 
         public boolean isValid() {
@@ -89,21 +89,21 @@ public class TokenExample {
             return criteria;
         }
 
-        protected void addCriterion(String condition) {
+        protected void addCriterion(final String condition) {
             if (condition == null) {
                 throw new RuntimeException("Value for condition cannot be null");
             }
             criteria.add(new Criterion(condition));
         }
 
-        protected void addCriterion(String condition, Object value, String property) {
+        protected void addCriterion(final String condition, final Object value, final String property) {
             if (value == null) {
                 throw new RuntimeException("Value for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value));
         }
 
-        protected void addCriterion(String condition, Object value1, Object value2, String property) {
+        protected void addCriterion(final String condition, final Object value1, final Object value2, final String property) {
             if (value1 == null || value2 == null) {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
@@ -111,7 +111,7 @@ public class TokenExample {
         }
 
 	        public Criteria andIdIsNull() {
-            addCriterion("id is null");
+                addCriterion("id is null");
             return (Criteria)this;
         }
 
@@ -120,57 +120,57 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andIdEqualTo(Long value) {
+        public Criteria andIdEqualTo(final Long value) {
             addCriterion("id =", value, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdNotEqualTo(Long value) {
+        public Criteria andIdNotEqualTo(final Long value) {
             addCriterion("id <>", value, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdIn(List<Long> values) {
+        public Criteria andIdIn(final List<Long> values) {
             addCriterion("id in", values, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdNotIn(List<Long> values) {
+        public Criteria andIdNotIn(final List<Long> values) {
             addCriterion("id not in", values, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdBetween(Long value1, Long value2) {
+        public Criteria andIdBetween(final Long value1, final Long value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdNotBetween(Long value1, Long value2) {
+        public Criteria andIdNotBetween(final Long value1, final Long value2) {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria)this;
         }
-		
-				public Criteria andIdGreaterThan(Long value) {
+
+        public Criteria andIdGreaterThan(final Long value) {
             addCriterion("id >", value, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+        public Criteria andIdGreaterThanOrEqualTo(final Long value) {
             addCriterion("id >=", value, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdLessThan(Long value) {
+        public Criteria andIdLessThan(final Long value) {
             addCriterion("id <", value, "id");
             return (Criteria)this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Long value) {
+        public Criteria andIdLessThanOrEqualTo(final Long value) {
             addCriterion("id <=", value, "id");
             return (Criteria)this;
         }
-				
-			        public Criteria andAssetNameIsNull() {
+
+        public Criteria andAssetNameIsNull() {
             addCriterion("asset_name is null");
             return (Criteria)this;
         }
@@ -180,48 +180,48 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andAssetNameEqualTo(String value) {
+        public Criteria andAssetNameEqualTo(final String value) {
             addCriterion("asset_name =", value, "assetName");
             return (Criteria)this;
         }
 
-        public Criteria andAssetNameNotEqualTo(String value) {
+        public Criteria andAssetNameNotEqualTo(final String value) {
             addCriterion("asset_name <>", value, "assetName");
             return (Criteria)this;
         }
 
-        public Criteria andAssetNameIn(List<String> values) {
+        public Criteria andAssetNameIn(final List<String> values) {
             addCriterion("asset_name in", values, "assetName");
             return (Criteria)this;
         }
 
-        public Criteria andAssetNameNotIn(List<String> values) {
+        public Criteria andAssetNameNotIn(final List<String> values) {
             addCriterion("asset_name not in", values, "assetName");
             return (Criteria)this;
         }
 
-        public Criteria andAssetNameBetween(String value1, String value2) {
+        public Criteria andAssetNameBetween(final String value1, final String value2) {
             addCriterion("asset_name between", value1, value2, "assetName");
             return (Criteria)this;
         }
 
-        public Criteria andAssetNameNotBetween(String value1, String value2) {
+        public Criteria andAssetNameNotBetween(final String value1, final String value2) {
             addCriterion("asset_name not between", value1, value2, "assetName");
             return (Criteria)this;
         }
-		
-				
-				public Criteria andAssetNameLike(String value) {
+
+
+        public Criteria andAssetNameLike(final String value) {
             addCriterion("asset_name like", value, "assetName");
             return (Criteria)this;
         }
 
-        public Criteria andAssetNameNotLike(String value) {
+        public Criteria andAssetNameNotLike(final String value) {
             addCriterion("asset_name not like", value, "assetName");
             return (Criteria)this;
         }
 			        public Criteria andTickerIsNull() {
-            addCriterion("ticker is null");
+                        addCriterion("ticker is null");
             return (Criteria)this;
         }
 
@@ -230,48 +230,48 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andTickerEqualTo(String value) {
+        public Criteria andTickerEqualTo(final String value) {
             addCriterion("ticker =", value, "ticker");
             return (Criteria)this;
         }
 
-        public Criteria andTickerNotEqualTo(String value) {
+        public Criteria andTickerNotEqualTo(final String value) {
             addCriterion("ticker <>", value, "ticker");
             return (Criteria)this;
         }
 
-        public Criteria andTickerIn(List<String> values) {
+        public Criteria andTickerIn(final List<String> values) {
             addCriterion("ticker in", values, "ticker");
             return (Criteria)this;
         }
 
-        public Criteria andTickerNotIn(List<String> values) {
+        public Criteria andTickerNotIn(final List<String> values) {
             addCriterion("ticker not in", values, "ticker");
             return (Criteria)this;
         }
 
-        public Criteria andTickerBetween(String value1, String value2) {
+        public Criteria andTickerBetween(final String value1, final String value2) {
             addCriterion("ticker between", value1, value2, "ticker");
             return (Criteria)this;
         }
 
-        public Criteria andTickerNotBetween(String value1, String value2) {
+        public Criteria andTickerNotBetween(final String value1, final String value2) {
             addCriterion("ticker not between", value1, value2, "ticker");
             return (Criteria)this;
         }
-		
-				
-				public Criteria andTickerLike(String value) {
+
+
+        public Criteria andTickerLike(final String value) {
             addCriterion("ticker like", value, "ticker");
             return (Criteria)this;
         }
 
-        public Criteria andTickerNotLike(String value) {
+        public Criteria andTickerNotLike(final String value) {
             addCriterion("ticker not like", value, "ticker");
             return (Criteria)this;
         }
 			        public Criteria andCapIsNull() {
-            addCriterion("cap is null");
+                        addCriterion("cap is null");
             return (Criteria)this;
         }
 
@@ -280,57 +280,57 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andCapEqualTo(Long value) {
+        public Criteria andCapEqualTo(final Long value) {
             addCriterion("cap =", value, "cap");
             return (Criteria)this;
         }
 
-        public Criteria andCapNotEqualTo(Long value) {
+        public Criteria andCapNotEqualTo(final Long value) {
             addCriterion("cap <>", value, "cap");
             return (Criteria)this;
         }
 
-        public Criteria andCapIn(List<Long> values) {
+        public Criteria andCapIn(final List<Long> values) {
             addCriterion("cap in", values, "cap");
             return (Criteria)this;
         }
 
-        public Criteria andCapNotIn(List<Long> values) {
+        public Criteria andCapNotIn(final List<Long> values) {
             addCriterion("cap not in", values, "cap");
             return (Criteria)this;
         }
 
-        public Criteria andCapBetween(Long value1, Long value2) {
+        public Criteria andCapBetween(final Long value1, final Long value2) {
             addCriterion("cap between", value1, value2, "cap");
             return (Criteria)this;
         }
 
-        public Criteria andCapNotBetween(Long value1, Long value2) {
+        public Criteria andCapNotBetween(final Long value1, final Long value2) {
             addCriterion("cap not between", value1, value2, "cap");
             return (Criteria)this;
         }
-		
-				public Criteria andCapGreaterThan(Long value) {
+
+        public Criteria andCapGreaterThan(final Long value) {
             addCriterion("cap >", value, "cap");
             return (Criteria)this;
         }
 
-        public Criteria andCapGreaterThanOrEqualTo(Long value) {
+        public Criteria andCapGreaterThanOrEqualTo(final Long value) {
             addCriterion("cap >=", value, "cap");
             return (Criteria)this;
         }
 
-        public Criteria andCapLessThan(Long value) {
+        public Criteria andCapLessThan(final Long value) {
             addCriterion("cap <", value, "cap");
             return (Criteria)this;
         }
 
-        public Criteria andCapLessThanOrEqualTo(Long value) {
+        public Criteria andCapLessThanOrEqualTo(final Long value) {
             addCriterion("cap <=", value, "cap");
             return (Criteria)this;
         }
-				
-			        public Criteria andAssetIdIsNull() {
+
+        public Criteria andAssetIdIsNull() {
             addCriterion("asset_id is null");
             return (Criteria)this;
         }
@@ -340,48 +340,48 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andAssetIdEqualTo(String value) {
+        public Criteria andAssetIdEqualTo(final String value) {
             addCriterion("asset_id =", value, "assetId");
             return (Criteria)this;
         }
 
-        public Criteria andAssetIdNotEqualTo(String value) {
+        public Criteria andAssetIdNotEqualTo(final String value) {
             addCriterion("asset_id <>", value, "assetId");
             return (Criteria)this;
         }
 
-        public Criteria andAssetIdIn(List<String> values) {
+        public Criteria andAssetIdIn(final List<String> values) {
             addCriterion("asset_id in", values, "assetId");
             return (Criteria)this;
         }
 
-        public Criteria andAssetIdNotIn(List<String> values) {
+        public Criteria andAssetIdNotIn(final List<String> values) {
             addCriterion("asset_id not in", values, "assetId");
             return (Criteria)this;
         }
 
-        public Criteria andAssetIdBetween(String value1, String value2) {
+        public Criteria andAssetIdBetween(final String value1, final String value2) {
             addCriterion("asset_id between", value1, value2, "assetId");
             return (Criteria)this;
         }
 
-        public Criteria andAssetIdNotBetween(String value1, String value2) {
+        public Criteria andAssetIdNotBetween(final String value1, final String value2) {
             addCriterion("asset_id not between", value1, value2, "assetId");
             return (Criteria)this;
         }
-		
-				
-				public Criteria andAssetIdLike(String value) {
+
+
+        public Criteria andAssetIdLike(final String value) {
             addCriterion("asset_id like", value, "assetId");
             return (Criteria)this;
         }
 
-        public Criteria andAssetIdNotLike(String value) {
+        public Criteria andAssetIdNotLike(final String value) {
             addCriterion("asset_id not like", value, "assetId");
             return (Criteria)this;
         }
 			        public Criteria andIssuserNameIsNull() {
-            addCriterion("issuser_name is null");
+                        addCriterion("issuser_name is null");
             return (Criteria)this;
         }
 
@@ -390,48 +390,48 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andIssuserNameEqualTo(String value) {
+        public Criteria andIssuserNameEqualTo(final String value) {
             addCriterion("issuser_name =", value, "issuserName");
             return (Criteria)this;
         }
 
-        public Criteria andIssuserNameNotEqualTo(String value) {
+        public Criteria andIssuserNameNotEqualTo(final String value) {
             addCriterion("issuser_name <>", value, "issuserName");
             return (Criteria)this;
         }
 
-        public Criteria andIssuserNameIn(List<String> values) {
+        public Criteria andIssuserNameIn(final List<String> values) {
             addCriterion("issuser_name in", values, "issuserName");
             return (Criteria)this;
         }
 
-        public Criteria andIssuserNameNotIn(List<String> values) {
+        public Criteria andIssuserNameNotIn(final List<String> values) {
             addCriterion("issuser_name not in", values, "issuserName");
             return (Criteria)this;
         }
 
-        public Criteria andIssuserNameBetween(String value1, String value2) {
+        public Criteria andIssuserNameBetween(final String value1, final String value2) {
             addCriterion("issuser_name between", value1, value2, "issuserName");
             return (Criteria)this;
         }
 
-        public Criteria andIssuserNameNotBetween(String value1, String value2) {
+        public Criteria andIssuserNameNotBetween(final String value1, final String value2) {
             addCriterion("issuser_name not between", value1, value2, "issuserName");
             return (Criteria)this;
         }
-		
-				
-				public Criteria andIssuserNameLike(String value) {
+
+
+        public Criteria andIssuserNameLike(final String value) {
             addCriterion("issuser_name like", value, "issuserName");
             return (Criteria)this;
         }
 
-        public Criteria andIssuserNameNotLike(String value) {
+        public Criteria andIssuserNameNotLike(final String value) {
             addCriterion("issuser_name not like", value, "issuserName");
             return (Criteria)this;
         }
 			        public Criteria andAddressIsNull() {
-            addCriterion("address is null");
+                        addCriterion("address is null");
             return (Criteria)this;
         }
 
@@ -440,48 +440,48 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andAddressEqualTo(String value) {
+        public Criteria andAddressEqualTo(final String value) {
             addCriterion("address =", value, "address");
             return (Criteria)this;
         }
 
-        public Criteria andAddressNotEqualTo(String value) {
+        public Criteria andAddressNotEqualTo(final String value) {
             addCriterion("address <>", value, "address");
             return (Criteria)this;
         }
 
-        public Criteria andAddressIn(List<String> values) {
+        public Criteria andAddressIn(final List<String> values) {
             addCriterion("address in", values, "address");
             return (Criteria)this;
         }
 
-        public Criteria andAddressNotIn(List<String> values) {
+        public Criteria andAddressNotIn(final List<String> values) {
             addCriterion("address not in", values, "address");
             return (Criteria)this;
         }
 
-        public Criteria andAddressBetween(String value1, String value2) {
+        public Criteria andAddressBetween(final String value1, final String value2) {
             addCriterion("address between", value1, value2, "address");
             return (Criteria)this;
         }
 
-        public Criteria andAddressNotBetween(String value1, String value2) {
+        public Criteria andAddressNotBetween(final String value1, final String value2) {
             addCriterion("address not between", value1, value2, "address");
             return (Criteria)this;
         }
-		
-				
-				public Criteria andAddressLike(String value) {
+
+
+        public Criteria andAddressLike(final String value) {
             addCriterion("address like", value, "address");
             return (Criteria)this;
         }
 
-        public Criteria andAddressNotLike(String value) {
+        public Criteria andAddressNotLike(final String value) {
             addCriterion("address not like", value, "address");
             return (Criteria)this;
         }
 			        public Criteria andReviewStatusIsNull() {
-            addCriterion("review_status is null");
+                        addCriterion("review_status is null");
             return (Criteria)this;
         }
 
@@ -490,57 +490,57 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andReviewStatusEqualTo(Integer value) {
+        public Criteria andReviewStatusEqualTo(final Integer value) {
             addCriterion("review_status =", value, "reviewStatus");
             return (Criteria)this;
         }
 
-        public Criteria andReviewStatusNotEqualTo(Integer value) {
+        public Criteria andReviewStatusNotEqualTo(final Integer value) {
             addCriterion("review_status <>", value, "reviewStatus");
             return (Criteria)this;
         }
 
-        public Criteria andReviewStatusIn(List<Integer> values) {
+        public Criteria andReviewStatusIn(final List<Integer> values) {
             addCriterion("review_status in", values, "reviewStatus");
             return (Criteria)this;
         }
 
-        public Criteria andReviewStatusNotIn(List<Integer> values) {
+        public Criteria andReviewStatusNotIn(final List<Integer> values) {
             addCriterion("review_status not in", values, "reviewStatus");
             return (Criteria)this;
         }
 
-        public Criteria andReviewStatusBetween(Integer value1, Integer value2) {
+        public Criteria andReviewStatusBetween(final Integer value1, final Integer value2) {
             addCriterion("review_status between", value1, value2, "reviewStatus");
             return (Criteria)this;
         }
 
-        public Criteria andReviewStatusNotBetween(Integer value1, Integer value2) {
+        public Criteria andReviewStatusNotBetween(final Integer value1, final Integer value2) {
             addCriterion("review_status not between", value1, value2, "reviewStatus");
             return (Criteria)this;
         }
-		
-				public Criteria andReviewStatusGreaterThan(Integer value) {
+
+        public Criteria andReviewStatusGreaterThan(final Integer value) {
             addCriterion("review_status >", value, "reviewStatus");
             return (Criteria)this;
         }
 
-        public Criteria andReviewStatusGreaterThanOrEqualTo(Integer value) {
+        public Criteria andReviewStatusGreaterThanOrEqualTo(final Integer value) {
             addCriterion("review_status >=", value, "reviewStatus");
             return (Criteria)this;
         }
 
-        public Criteria andReviewStatusLessThan(Integer value) {
+        public Criteria andReviewStatusLessThan(final Integer value) {
             addCriterion("review_status <", value, "reviewStatus");
             return (Criteria)this;
         }
 
-        public Criteria andReviewStatusLessThanOrEqualTo(Integer value) {
+        public Criteria andReviewStatusLessThanOrEqualTo(final Integer value) {
             addCriterion("review_status <=", value, "reviewStatus");
             return (Criteria)this;
         }
-				
-			        public Criteria andPayStatusIsNull() {
+
+        public Criteria andPayStatusIsNull() {
             addCriterion("pay_status is null");
             return (Criteria)this;
         }
@@ -550,57 +550,57 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andPayStatusEqualTo(Integer value) {
+        public Criteria andPayStatusEqualTo(final Integer value) {
             addCriterion("pay_status =", value, "payStatus");
             return (Criteria)this;
         }
 
-        public Criteria andPayStatusNotEqualTo(Integer value) {
+        public Criteria andPayStatusNotEqualTo(final Integer value) {
             addCriterion("pay_status <>", value, "payStatus");
             return (Criteria)this;
         }
 
-        public Criteria andPayStatusIn(List<Integer> values) {
+        public Criteria andPayStatusIn(final List<Integer> values) {
             addCriterion("pay_status in", values, "payStatus");
             return (Criteria)this;
         }
 
-        public Criteria andPayStatusNotIn(List<Integer> values) {
+        public Criteria andPayStatusNotIn(final List<Integer> values) {
             addCriterion("pay_status not in", values, "payStatus");
             return (Criteria)this;
         }
 
-        public Criteria andPayStatusBetween(Integer value1, Integer value2) {
+        public Criteria andPayStatusBetween(final Integer value1, final Integer value2) {
             addCriterion("pay_status between", value1, value2, "payStatus");
             return (Criteria)this;
         }
 
-        public Criteria andPayStatusNotBetween(Integer value1, Integer value2) {
+        public Criteria andPayStatusNotBetween(final Integer value1, final Integer value2) {
             addCriterion("pay_status not between", value1, value2, "payStatus");
             return (Criteria)this;
         }
-		
-				public Criteria andPayStatusGreaterThan(Integer value) {
+
+        public Criteria andPayStatusGreaterThan(final Integer value) {
             addCriterion("pay_status >", value, "payStatus");
             return (Criteria)this;
         }
 
-        public Criteria andPayStatusGreaterThanOrEqualTo(Integer value) {
+        public Criteria andPayStatusGreaterThanOrEqualTo(final Integer value) {
             addCriterion("pay_status >=", value, "payStatus");
             return (Criteria)this;
         }
 
-        public Criteria andPayStatusLessThan(Integer value) {
+        public Criteria andPayStatusLessThan(final Integer value) {
             addCriterion("pay_status <", value, "payStatus");
             return (Criteria)this;
         }
 
-        public Criteria andPayStatusLessThanOrEqualTo(Integer value) {
+        public Criteria andPayStatusLessThanOrEqualTo(final Integer value) {
             addCriterion("pay_status <=", value, "payStatus");
             return (Criteria)this;
         }
-				
-			        public Criteria andEmailIsNull() {
+
+        public Criteria andEmailIsNull() {
             addCriterion("email is null");
             return (Criteria)this;
         }
@@ -610,48 +610,48 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andEmailEqualTo(String value) {
+        public Criteria andEmailEqualTo(final String value) {
             addCriterion("email =", value, "email");
             return (Criteria)this;
         }
 
-        public Criteria andEmailNotEqualTo(String value) {
+        public Criteria andEmailNotEqualTo(final String value) {
             addCriterion("email <>", value, "email");
             return (Criteria)this;
         }
 
-        public Criteria andEmailIn(List<String> values) {
+        public Criteria andEmailIn(final List<String> values) {
             addCriterion("email in", values, "email");
             return (Criteria)this;
         }
 
-        public Criteria andEmailNotIn(List<String> values) {
+        public Criteria andEmailNotIn(final List<String> values) {
             addCriterion("email not in", values, "email");
             return (Criteria)this;
         }
 
-        public Criteria andEmailBetween(String value1, String value2) {
+        public Criteria andEmailBetween(final String value1, final String value2) {
             addCriterion("email between", value1, value2, "email");
             return (Criteria)this;
         }
 
-        public Criteria andEmailNotBetween(String value1, String value2) {
+        public Criteria andEmailNotBetween(final String value1, final String value2) {
             addCriterion("email not between", value1, value2, "email");
             return (Criteria)this;
         }
-		
-				
-				public Criteria andEmailLike(String value) {
+
+
+        public Criteria andEmailLike(final String value) {
             addCriterion("email like", value, "email");
             return (Criteria)this;
         }
 
-        public Criteria andEmailNotLike(String value) {
+        public Criteria andEmailNotLike(final String value) {
             addCriterion("email not like", value, "email");
             return (Criteria)this;
         }
 			        public Criteria andDescriptIsNull() {
-            addCriterion("descript is null");
+                        addCriterion("descript is null");
             return (Criteria)this;
         }
 
@@ -660,48 +660,48 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andDescriptEqualTo(String value) {
+        public Criteria andDescriptEqualTo(final String value) {
             addCriterion("descript =", value, "descript");
             return (Criteria)this;
         }
 
-        public Criteria andDescriptNotEqualTo(String value) {
+        public Criteria andDescriptNotEqualTo(final String value) {
             addCriterion("descript <>", value, "descript");
             return (Criteria)this;
         }
 
-        public Criteria andDescriptIn(List<String> values) {
+        public Criteria andDescriptIn(final List<String> values) {
             addCriterion("descript in", values, "descript");
             return (Criteria)this;
         }
 
-        public Criteria andDescriptNotIn(List<String> values) {
+        public Criteria andDescriptNotIn(final List<String> values) {
             addCriterion("descript not in", values, "descript");
             return (Criteria)this;
         }
 
-        public Criteria andDescriptBetween(String value1, String value2) {
+        public Criteria andDescriptBetween(final String value1, final String value2) {
             addCriterion("descript between", value1, value2, "descript");
             return (Criteria)this;
         }
 
-        public Criteria andDescriptNotBetween(String value1, String value2) {
+        public Criteria andDescriptNotBetween(final String value1, final String value2) {
             addCriterion("descript not between", value1, value2, "descript");
             return (Criteria)this;
         }
-		
-				
-				public Criteria andDescriptLike(String value) {
+
+
+        public Criteria andDescriptLike(final String value) {
             addCriterion("descript like", value, "descript");
             return (Criteria)this;
         }
 
-        public Criteria andDescriptNotLike(String value) {
+        public Criteria andDescriptNotLike(final String value) {
             addCriterion("descript not like", value, "descript");
             return (Criteria)this;
         }
 			        public Criteria andOperatorIsNull() {
-            addCriterion("operator is null");
+                        addCriterion("operator is null");
             return (Criteria)this;
         }
 
@@ -710,57 +710,57 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andOperatorEqualTo(Integer value) {
+        public Criteria andOperatorEqualTo(final Integer value) {
             addCriterion("operator =", value, "operator");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorNotEqualTo(Integer value) {
+        public Criteria andOperatorNotEqualTo(final Integer value) {
             addCriterion("operator <>", value, "operator");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorIn(List<Integer> values) {
+        public Criteria andOperatorIn(final List<Integer> values) {
             addCriterion("operator in", values, "operator");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorNotIn(List<Integer> values) {
+        public Criteria andOperatorNotIn(final List<Integer> values) {
             addCriterion("operator not in", values, "operator");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorBetween(Integer value1, Integer value2) {
+        public Criteria andOperatorBetween(final Integer value1, final Integer value2) {
             addCriterion("operator between", value1, value2, "operator");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorNotBetween(Integer value1, Integer value2) {
+        public Criteria andOperatorNotBetween(final Integer value1, final Integer value2) {
             addCriterion("operator not between", value1, value2, "operator");
             return (Criteria)this;
         }
-		
-				public Criteria andOperatorGreaterThan(Integer value) {
+
+        public Criteria andOperatorGreaterThan(final Integer value) {
             addCriterion("operator >", value, "operator");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorGreaterThanOrEqualTo(Integer value) {
+        public Criteria andOperatorGreaterThanOrEqualTo(final Integer value) {
             addCriterion("operator >=", value, "operator");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorLessThan(Integer value) {
+        public Criteria andOperatorLessThan(final Integer value) {
             addCriterion("operator <", value, "operator");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorLessThanOrEqualTo(Integer value) {
+        public Criteria andOperatorLessThanOrEqualTo(final Integer value) {
             addCriterion("operator <=", value, "operator");
             return (Criteria)this;
         }
-				
-			        public Criteria andCrtTimeIsNull() {
+
+        public Criteria andCrtTimeIsNull() {
             addCriterion("crt_time is null");
             return (Criteria)this;
         }
@@ -770,57 +770,57 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andCrtTimeEqualTo(Date value) {
+        public Criteria andCrtTimeEqualTo(final LocalDateTime value) {
             addCriterion("crt_time =", value, "crtTime");
             return (Criteria)this;
         }
 
-        public Criteria andCrtTimeNotEqualTo(Date value) {
+        public Criteria andCrtTimeNotEqualTo(final LocalDateTime value) {
             addCriterion("crt_time <>", value, "crtTime");
             return (Criteria)this;
         }
 
-        public Criteria andCrtTimeIn(List<Date> values) {
+        public Criteria andCrtTimeIn(final List<LocalDateTime> values) {
             addCriterion("crt_time in", values, "crtTime");
             return (Criteria)this;
         }
 
-        public Criteria andCrtTimeNotIn(List<Date> values) {
+        public Criteria andCrtTimeNotIn(final List<LocalDateTime> values) {
             addCriterion("crt_time not in", values, "crtTime");
             return (Criteria)this;
         }
 
-        public Criteria andCrtTimeBetween(Date value1, Date value2) {
+        public Criteria andCrtTimeBetween(final LocalDateTime value1, final LocalDateTime value2) {
             addCriterion("crt_time between", value1, value2, "crtTime");
             return (Criteria)this;
         }
 
-        public Criteria andCrtTimeNotBetween(Date value1, Date value2) {
+        public Criteria andCrtTimeNotBetween(final LocalDateTime value1, final LocalDateTime value2) {
             addCriterion("crt_time not between", value1, value2, "crtTime");
             return (Criteria)this;
         }
-		
-				public Criteria andCrtTimeGreaterThan(Date value) {
+
+        public Criteria andCrtTimeGreaterThan(final LocalDateTime value) {
             addCriterion("crt_time >", value, "crtTime");
             return (Criteria)this;
         }
 
-        public Criteria andCrtTimeGreaterThanOrEqualTo(Date value) {
+        public Criteria andCrtTimeGreaterThanOrEqualTo(final LocalDateTime value) {
             addCriterion("crt_time >=", value, "crtTime");
             return (Criteria)this;
         }
 
-        public Criteria andCrtTimeLessThan(Date value) {
+        public Criteria andCrtTimeLessThan(final LocalDateTime value) {
             addCriterion("crt_time <", value, "crtTime");
             return (Criteria)this;
         }
 
-        public Criteria andCrtTimeLessThanOrEqualTo(Date value) {
+        public Criteria andCrtTimeLessThanOrEqualTo(final LocalDateTime value) {
             addCriterion("crt_time <=", value, "crtTime");
             return (Criteria)this;
         }
-				
-			        public Criteria andOperatorTimeIsNull() {
+
+        public Criteria andOperatorTimeIsNull() {
             addCriterion("operator_time is null");
             return (Criteria)this;
         }
@@ -830,57 +830,57 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andOperatorTimeEqualTo(Date value) {
+        public Criteria andOperatorTimeEqualTo(final LocalDateTime value) {
             addCriterion("operator_time =", value, "operatorTime");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorTimeNotEqualTo(Date value) {
+        public Criteria andOperatorTimeNotEqualTo(final LocalDateTime value) {
             addCriterion("operator_time <>", value, "operatorTime");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorTimeIn(List<Date> values) {
+        public Criteria andOperatorTimeIn(final List<LocalDateTime> values) {
             addCriterion("operator_time in", values, "operatorTime");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorTimeNotIn(List<Date> values) {
+        public Criteria andOperatorTimeNotIn(final List<LocalDateTime> values) {
             addCriterion("operator_time not in", values, "operatorTime");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorTimeBetween(Date value1, Date value2) {
+        public Criteria andOperatorTimeBetween(final LocalDateTime value1, final LocalDateTime value2) {
             addCriterion("operator_time between", value1, value2, "operatorTime");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorTimeNotBetween(Date value1, Date value2) {
+        public Criteria andOperatorTimeNotBetween(final LocalDateTime value1, final LocalDateTime value2) {
             addCriterion("operator_time not between", value1, value2, "operatorTime");
             return (Criteria)this;
         }
-		
-				public Criteria andOperatorTimeGreaterThan(Date value) {
+
+        public Criteria andOperatorTimeGreaterThan(final LocalDateTime value) {
             addCriterion("operator_time >", value, "operatorTime");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorTimeGreaterThanOrEqualTo(Date value) {
+        public Criteria andOperatorTimeGreaterThanOrEqualTo(final LocalDateTime value) {
             addCriterion("operator_time >=", value, "operatorTime");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorTimeLessThan(Date value) {
+        public Criteria andOperatorTimeLessThan(final LocalDateTime value) {
             addCriterion("operator_time <", value, "operatorTime");
             return (Criteria)this;
         }
 
-        public Criteria andOperatorTimeLessThanOrEqualTo(Date value) {
+        public Criteria andOperatorTimeLessThanOrEqualTo(final LocalDateTime value) {
             addCriterion("operator_time <=", value, "operatorTime");
             return (Criteria)this;
         }
-				
-			        public Criteria andEmailIdIsNull() {
+
+        public Criteria andEmailIdIsNull() {
             addCriterion("email_id is null");
             return (Criteria)this;
         }
@@ -890,57 +890,57 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andEmailIdEqualTo(Integer value) {
+        public Criteria andEmailIdEqualTo(final Integer value) {
             addCriterion("email_id =", value, "emailId");
             return (Criteria)this;
         }
 
-        public Criteria andEmailIdNotEqualTo(Integer value) {
+        public Criteria andEmailIdNotEqualTo(final Integer value) {
             addCriterion("email_id <>", value, "emailId");
             return (Criteria)this;
         }
 
-        public Criteria andEmailIdIn(List<Integer> values) {
+        public Criteria andEmailIdIn(final List<Integer> values) {
             addCriterion("email_id in", values, "emailId");
             return (Criteria)this;
         }
 
-        public Criteria andEmailIdNotIn(List<Integer> values) {
+        public Criteria andEmailIdNotIn(final List<Integer> values) {
             addCriterion("email_id not in", values, "emailId");
             return (Criteria)this;
         }
 
-        public Criteria andEmailIdBetween(Integer value1, Integer value2) {
+        public Criteria andEmailIdBetween(final Integer value1, final Integer value2) {
             addCriterion("email_id between", value1, value2, "emailId");
             return (Criteria)this;
         }
 
-        public Criteria andEmailIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andEmailIdNotBetween(final Integer value1, final Integer value2) {
             addCriterion("email_id not between", value1, value2, "emailId");
             return (Criteria)this;
         }
-		
-				public Criteria andEmailIdGreaterThan(Integer value) {
+
+        public Criteria andEmailIdGreaterThan(final Integer value) {
             addCriterion("email_id >", value, "emailId");
             return (Criteria)this;
         }
 
-        public Criteria andEmailIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andEmailIdGreaterThanOrEqualTo(final Integer value) {
             addCriterion("email_id >=", value, "emailId");
             return (Criteria)this;
         }
 
-        public Criteria andEmailIdLessThan(Integer value) {
+        public Criteria andEmailIdLessThan(final Integer value) {
             addCriterion("email_id <", value, "emailId");
             return (Criteria)this;
         }
 
-        public Criteria andEmailIdLessThanOrEqualTo(Integer value) {
+        public Criteria andEmailIdLessThanOrEqualTo(final Integer value) {
             addCriterion("email_id <=", value, "emailId");
             return (Criteria)this;
         }
-				
-			        public Criteria andTokencolIsNull() {
+
+        public Criteria andTokencolIsNull() {
             addCriterion("tokencol is null");
             return (Criteria)this;
         }
@@ -950,48 +950,48 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andTokencolEqualTo(String value) {
+        public Criteria andTokencolEqualTo(final String value) {
             addCriterion("tokencol =", value, "tokencol");
             return (Criteria)this;
         }
 
-        public Criteria andTokencolNotEqualTo(String value) {
+        public Criteria andTokencolNotEqualTo(final String value) {
             addCriterion("tokencol <>", value, "tokencol");
             return (Criteria)this;
         }
 
-        public Criteria andTokencolIn(List<String> values) {
+        public Criteria andTokencolIn(final List<String> values) {
             addCriterion("tokencol in", values, "tokencol");
             return (Criteria)this;
         }
 
-        public Criteria andTokencolNotIn(List<String> values) {
+        public Criteria andTokencolNotIn(final List<String> values) {
             addCriterion("tokencol not in", values, "tokencol");
             return (Criteria)this;
         }
 
-        public Criteria andTokencolBetween(String value1, String value2) {
+        public Criteria andTokencolBetween(final String value1, final String value2) {
             addCriterion("tokencol between", value1, value2, "tokencol");
             return (Criteria)this;
         }
 
-        public Criteria andTokencolNotBetween(String value1, String value2) {
+        public Criteria andTokencolNotBetween(final String value1, final String value2) {
             addCriterion("tokencol not between", value1, value2, "tokencol");
             return (Criteria)this;
         }
-		
-				
-				public Criteria andTokencolLike(String value) {
+
+
+        public Criteria andTokencolLike(final String value) {
             addCriterion("tokencol like", value, "tokencol");
             return (Criteria)this;
         }
 
-        public Criteria andTokencolNotLike(String value) {
+        public Criteria andTokencolNotLike(final String value) {
             addCriterion("tokencol not like", value, "tokencol");
             return (Criteria)this;
         }
 			        public Criteria andTokencol1IsNull() {
-            addCriterion("tokencol1 is null");
+                        addCriterion("tokencol1 is null");
             return (Criteria)this;
         }
 
@@ -1000,43 +1000,43 @@ public class TokenExample {
             return (Criteria)this;
         }
 
-        public Criteria andTokencol1EqualTo(String value) {
+        public Criteria andTokencol1EqualTo(final String value) {
             addCriterion("tokencol1 =", value, "tokencol1");
             return (Criteria)this;
         }
 
-        public Criteria andTokencol1NotEqualTo(String value) {
+        public Criteria andTokencol1NotEqualTo(final String value) {
             addCriterion("tokencol1 <>", value, "tokencol1");
             return (Criteria)this;
         }
 
-        public Criteria andTokencol1In(List<String> values) {
+        public Criteria andTokencol1In(final List<String> values) {
             addCriterion("tokencol1 in", values, "tokencol1");
             return (Criteria)this;
         }
 
-        public Criteria andTokencol1NotIn(List<String> values) {
+        public Criteria andTokencol1NotIn(final List<String> values) {
             addCriterion("tokencol1 not in", values, "tokencol1");
             return (Criteria)this;
         }
 
-        public Criteria andTokencol1Between(String value1, String value2) {
+        public Criteria andTokencol1Between(final String value1, final String value2) {
             addCriterion("tokencol1 between", value1, value2, "tokencol1");
             return (Criteria)this;
         }
 
-        public Criteria andTokencol1NotBetween(String value1, String value2) {
+        public Criteria andTokencol1NotBetween(final String value1, final String value2) {
             addCriterion("tokencol1 not between", value1, value2, "tokencol1");
             return (Criteria)this;
         }
-		
-				
-				public Criteria andTokencol1Like(String value) {
+
+
+        public Criteria andTokencol1Like(final String value) {
             addCriterion("tokencol1 like", value, "tokencol1");
             return (Criteria)this;
         }
 
-        public Criteria andTokencol1NotLike(String value) {
+        public Criteria andTokencol1NotLike(final String value) {
             addCriterion("tokencol1 not like", value, "tokencol1");
             return (Criteria)this;
         }
@@ -1055,21 +1055,50 @@ public class TokenExample {
     }
 
     public static class Criterion {
-        private String condition;
-
+        private final String condition;
+        private final String typeHandler;
         private Object value;
-
         private Object secondValue;
-
         private boolean noValue;
-
         private boolean singleValue;
-
         private boolean betweenValue;
-
         private boolean listValue;
 
-        private String typeHandler;
+        protected Criterion(final String condition) {
+            super();
+            this.condition = condition;
+            typeHandler = null;
+            noValue = true;
+        }
+
+        protected Criterion(final String condition, final Object value, final String typeHandler) {
+            super();
+            this.condition = condition;
+            this.value = value;
+            this.typeHandler = typeHandler;
+            if (value instanceof List<?>) {
+                listValue = true;
+            } else {
+                singleValue = true;
+            }
+        }
+
+        protected Criterion(final String condition, final Object value) {
+            this(condition, value, null);
+        }
+
+        protected Criterion(final String condition, final Object value, final Object secondValue, final String typeHandler) {
+            super();
+            this.condition = condition;
+            this.value = value;
+            this.secondValue = secondValue;
+            this.typeHandler = typeHandler;
+            betweenValue = true;
+        }
+
+        protected Criterion(final String condition, final Object value, final Object secondValue) {
+            this(condition, value, secondValue, null);
+        }
 
         public String getCondition() {
             return condition;
@@ -1101,42 +1130,6 @@ public class TokenExample {
 
         public String getTypeHandler() {
             return typeHandler;
-        }
-
-        protected Criterion(String condition) {
-            super();
-            this.condition = condition;
-            this.typeHandler = null;
-            this.noValue = true;
-        }
-
-        protected Criterion(String condition, Object value, String typeHandler) {
-            super();
-            this.condition = condition;
-            this.value = value;
-            this.typeHandler = typeHandler;
-            if (value instanceof List<?>) {
-                this.listValue = true;
-            } else {
-                this.singleValue = true;
-            }
-        }
-
-        protected Criterion(String condition, Object value) {
-            this(condition, value, null);
-        }
-
-        protected Criterion(String condition, Object value, Object secondValue, String typeHandler) {
-            super();
-            this.condition = condition;
-            this.value = value;
-            this.secondValue = secondValue;
-            this.typeHandler = typeHandler;
-            this.betweenValue = true;
-        }
-
-        protected Criterion(String condition, Object value, Object secondValue) {
-            this(condition, value, secondValue, null);
         }
     }
 }

@@ -7,12 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 /**
  * 
  * @author wang yu
- * @date 2018-05-17
+ * @date 2018-06-05
  */
 @Data
 @Builder
@@ -22,41 +23,41 @@ public class PaymentToken {
 		/**
      * 主键id
      */
-	 private Long id; 
+	 private Long id;
 		/**
      * token表id
      */
-	 private Long tokenId; 
+	 private Long tokenId;
 		/**
      * 币种符号
      */
-	 private String symbol; 
+	 private String symbol;
 		/**
      * 资产名称
      */
-	 private String assetName; 
+	 private String assetName;
 		/**
      * 资产id
      */
-	 private String assetId; 
+	 private String assetId;
 		/**
      * 发行者
      */
-	 private String issuserName; 
+	 private String issuserName;
 		/**
      * email外键
      */
-	 private Long emailId; 
+	 private Long emailId;
 		/**
      * 收款地址
      */
-	 private String address; 
+	 private String address;
 		/**
      * 描述
      */
-	 private String descript; 
+	 private String descript;
 		/**
      * 创建时间
      */
-	 private Date createTime; 
+	 private LocalDateTime createTime;
 	}

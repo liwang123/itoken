@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 								/**
  *  数据访问类
  * @author wang yu
- * @date 2018-05-17
+ * @date 2018-06-05
  */
 @Repository
 public interface EmailRepository
