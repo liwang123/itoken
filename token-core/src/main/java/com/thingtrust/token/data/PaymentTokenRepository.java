@@ -5,7 +5,7 @@ import com.thingtrust.token.domain.PaymentToken;
 import com.thingtrust.token.domain.example.PaymentTokenExample;
 import org.springframework.stereotype.Repository;
 
-											/**
+/**
  *  数据访问类
  * @author wang yu
  * @date 2018-06-05
