@@ -4,10 +4,7 @@ package com.thingtrust.token.service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Maps;
-import com.thingtrust.token.TokenAddressDTO;
-import com.thingtrust.token.TokenByAssetDTO;
-import com.thingtrust.token.TokenForPaymentInfoDTO;
-import com.thingtrust.token.TokenIssueInfoDTO;
+import com.thingtrust.token.*;
 import com.thingtrust.token.common.enums.BizErrorCodeEnum;
 import com.thingtrust.token.common.model.ResponseResult;
 import com.thingtrust.token.data.EmailRepository;
@@ -81,8 +78,12 @@ public class TokenService {
         } else {
             final JSONObject jsonObject = JSON.parseObject(body);
             final Integer errCode = jsonObject.getInteger("errCode");
+            TokenAssetDTO tokenAssetDTO = TokenAssetDTO.builder().build();
             if (errCode != null && errCode.intValue() != 1) {
                 final String assetID = jsonObject.getString("assetID");
+                tokenAssetDTO.setAssetId(assetID);
+
+
                 final TokenExample tokenExample = new TokenExample();
                 tokenExample.createCriteria()
                         .andIdEqualTo(token.getId());
@@ -118,11 +119,13 @@ public class TokenService {
                             .build()
                     );
                 }
-
+                return ResponseResult.success(tokenAssetDTO);
+            }else {
+                return ResponseResult.failure(BizErrorCodeEnum.NOT_PAYMENT);
             }
 
         }
-        return ResponseResult.success();
+
     }
 
     public ResponseResult getPaymentInfo(final String address) {
