@@ -110,7 +110,7 @@ public class TokenService {
                     paymentTokenRepository.insert(PaymentToken.builder()
                             .tokenId(token.getId())
                             .address(token.getAddress())
-                            .assetId(token.getAssetId())
+                            .assetId(assetID)
                             .assetName(token.getAssetName())
                             .descript(token.getDescript())
                             .emailId(email.getId().longValue())
