@@ -1,6 +1,9 @@
 package com.thingtrust.token.rest;
 
 
+import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Lists;
+import com.google.inject.internal.util.Maps;
 import com.thingtrust.token.IssueTokenCount;
 import com.thingtrust.token.TokenAddressDTO;
 import com.thingtrust.token.TokenByAssetDTO;
@@ -18,6 +21,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/v1/token")
@@ -100,9 +107,12 @@ public class TokenController {
     }
 
     @GetMapping("/query-token-detal")
-    public ResponseResult queryTokenDetail(final String assetId) {
+    public Map queryTokenDetail(final String assetId) {
         final TokenByAssetDTO tokenByAssetDTO = tokenService.queryTokenByAssetId(assetId);
-        return ResponseResult.success(tokenByAssetDTO);
+        Map<String, Object> map = Maps.newHashMap();
+        map.put("code",200);
+        map.put("entity",tokenByAssetDTO);
+        return map;
     }
 
     @GetMapping("/check-verification")
