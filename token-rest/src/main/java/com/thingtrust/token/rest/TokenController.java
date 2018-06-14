@@ -107,12 +107,9 @@ public class TokenController {
     }
 
     @GetMapping("/query-token-detal")
-    public Map queryTokenDetail(final String assetId) {
+    public ResponseResult queryTokenDetail(final String assetId) {
         final TokenByAssetDTO tokenByAssetDTO = tokenService.queryTokenByAssetId(assetId);
-        Map<String, Object> map = Maps.newHashMap();
-        map.put("code",200);
-        map.put("entity",tokenByAssetDTO);
-        return map;
+        return ResponseResult.success(tokenByAssetDTO);
     }
 
     @GetMapping("/check-verification")
