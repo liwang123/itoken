@@ -1,5 +1,7 @@
 package com.thingtrust.token.common.mybatis.pager;
 
+import java.util.List;
+
 public class PageInfo {
 
     public static final String SORT_TYPE_ASC = "asc";
@@ -9,9 +11,12 @@ public class PageInfo {
     private int pageSize;
     private String sortItem;
     private String sortType;
+    private List listObject;
+
+
 
     public PageInfo(int startIndex, int pageSize) {
-        this(startIndex, pageSize, "", "asc");
+        this(startIndex <0 ? 0:startIndex , pageSize, "", "asc");
     }
 
     public PageInfo(int startIndex, int pageSize, String sortItem) {
@@ -47,6 +52,10 @@ public class PageInfo {
         return this.sortType;
     }
 
+    public List<Object> getListObject() {
+        return listObject;
+    }
+
     public void setTotals(long totals) {
         this.totals = totals;
     }
@@ -66,6 +75,11 @@ public class PageInfo {
     public void setSortType(String sortType) {
         this.sortType = sortType;
     }
+
+    public void setListObject(List listObject) {
+        this.listObject = listObject;
+    }
+
 
     @Override
     public boolean equals(Object o) {

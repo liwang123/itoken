@@ -245,6 +245,25 @@
         </if>
         limit #{pager.startIndex} , #{pager.pageSize}
     </select>
-	 <!-- end select -->
+
+    <select id="selectPaymenTokenIssuserList" resultType="com.thingtrust.token.entity.PaymentTokenIssuserEntity">
+        SELECT
+            a.id ,
+            a.asset_name assetName,
+            a.symbol ,
+            a.asset_id assetId,
+            a.issuser_name issuserName,
+            b.cap ,
+            a.descript ,
+            a.create_time createTime
+        FROM
+            payment_token a
+        LEFT JOIN token b ON a.token_id = b.id
+        <if test="sortItem != null and sortItem != '' ">
+            order by ${sortItem} ${sortType}
+        </if>
+        limit #{startIndex} , #{pageSize}
+    </select>
+    <!-- end select -->
     <!-- My Custom Interfaces -->
 </mapper>

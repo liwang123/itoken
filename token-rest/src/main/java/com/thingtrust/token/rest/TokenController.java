@@ -4,12 +4,12 @@ package com.thingtrust.token.rest;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import com.google.inject.internal.util.Maps;
-import com.thingtrust.token.IssueTokenCount;
-import com.thingtrust.token.TokenAddressDTO;
-import com.thingtrust.token.TokenByAssetDTO;
+import com.thingtrust.token.*;
 import com.thingtrust.token.common.enums.BizErrorCodeEnum;
 import com.thingtrust.token.common.model.ResponseResult;
+import com.thingtrust.token.common.mybatis.pager.PageInfo;
 import com.thingtrust.token.domain.PaymentToken;
+import com.thingtrust.token.entity.PageEntity;
 import com.thingtrust.token.service.MailService;
 import com.thingtrust.token.service.TokenService;
 import com.thingtrust.token.util.ImageUtils.Captcha;
@@ -133,9 +133,21 @@ public class TokenController {
 
     @GetMapping("/payment/detail")
     public ResponseResult queryPaymentDetal(String assetId){
-        PaymentToken paymentToken = tokenService.queryPaymentTokenByAssetId(assetId);
-        return ResponseResult.success(paymentToken);
+        PaymentTokenDTO paymentTokenDTO = tokenService.queryPaymentTokenByAssetId(assetId);
+        return ResponseResult.success(paymentTokenDTO);
     }
+
+    @GetMapping("/payment/issuser-list")
+    public ResponseResult queryAllIssuserToken(PageEntity pageEntity){
+        PageInfo pageInfo = new PageInfo((pageEntity.getPage()-1)* pageEntity.getRows(),pageEntity.getRows());
+        List<PaymentIssueTokenDTO> paymentTokenDTOList = tokenService.queryIssueTokenInfo(pageInfo);
+        long count = tokenService.queryIssueTokenCount();
+        pageInfo.setListObject(paymentTokenDTOList);
+        pageInfo.setTotals(count);
+        return ResponseResult.success(pageInfo);
+    }
+
+
 
 
 }

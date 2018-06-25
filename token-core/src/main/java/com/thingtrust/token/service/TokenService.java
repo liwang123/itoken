@@ -7,6 +7,7 @@ import com.google.common.collect.Maps;
 import com.thingtrust.token.*;
 import com.thingtrust.token.common.enums.BizErrorCodeEnum;
 import com.thingtrust.token.common.model.ResponseResult;
+import com.thingtrust.token.common.mybatis.pager.PageInfo;
 import com.thingtrust.token.data.EmailRepository;
 import com.thingtrust.token.data.PaymentTokenRepository;
 import com.thingtrust.token.data.TokenRepository;
@@ -15,8 +16,10 @@ import com.thingtrust.token.domain.PaymentToken;
 import com.thingtrust.token.domain.Token;
 import com.thingtrust.token.domain.example.PaymentTokenExample;
 import com.thingtrust.token.domain.example.TokenExample;
+import com.thingtrust.token.entity.PaymentTokenIssuserEntity;
 import com.thingtrust.token.entity.TokenApi;
 import com.thingtrust.token.entity.TokenApiAddress;
+import com.thingtrust.token.util.DateTimeUtils;
 import com.thingtrust.token.util.OkHttpUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -26,7 +29,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -199,13 +204,36 @@ public class TokenService {
         return count;
     }
 
-    public PaymentToken queryPaymentTokenByAssetId(String assetId){
+    public PaymentTokenDTO queryPaymentTokenByAssetId(String assetId){
+        PaymentTokenDTO paymentTokenDTO = new PaymentTokenDTO();
+
         PaymentTokenExample paymentTokenExample = new PaymentTokenExample();
         paymentTokenExample.createCriteria()
                 .andAssetIdEqualTo(assetId);
         PaymentToken paymentToken = paymentTokenRepository.selectOneByExample(paymentTokenExample);
-        return paymentToken;
+        if(paymentToken != null){
+            BeanUtils.copyProperties(paymentToken,paymentTokenDTO);
+
+            TokenExample tokenExample = new TokenExample();
+            tokenExample.createCriteria()
+                    .andIdEqualTo(paymentToken.getTokenId());
+            Token token = tokenRepository.selectOneByExample(tokenExample);
+            paymentTokenDTO.setCap(token.getCap());
+            paymentTokenDTO.setCreateTime(DateTimeUtils.localDateTimeParseLong(paymentToken.getCreateTime()));
+        }
+        return paymentTokenDTO;
     }
 
+    public List<PaymentIssueTokenDTO> queryIssueTokenInfo(PageInfo pageInfo){
+        List<PaymentTokenIssuserEntity> paymentTokenIssuserEntityList = paymentTokenRepository.selectPaymenTokenIssuserList(pageInfo);
+        List<PaymentIssueTokenDTO> paymentTokenDTOList = paymentTokenIssuserEntityList.stream()
+                .map(event-> {
+                    PaymentIssueTokenDTO paymentTokenDTO = new PaymentIssueTokenDTO();
+                    BeanUtils.copyProperties(event,paymentTokenDTO);
+                    paymentTokenDTO.setCreateTime(DateTimeUtils.localDateTimeParseLong(event.getCreateTime()));
+                    return paymentTokenDTO;
+                }).collect(Collectors.toList());
 
+        return paymentTokenDTOList;
+    }
 }
