@@ -124,7 +124,7 @@ public class TokenController {
                 .build());
     }
 
-    @GetMapping("/payment/detal")
+    @GetMapping("/payment/detail")
     public ResponseResult queryPaymentDetal(String assetId){
         PaymentToken paymentToken = tokenService.queryPaymentTokenByAssetId(assetId);
         return ResponseResult.success(paymentToken);
