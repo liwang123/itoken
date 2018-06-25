@@ -6,6 +6,7 @@ import com.thingtrust.token.TokenAddressDTO;
 import com.thingtrust.token.TokenByAssetDTO;
 import com.thingtrust.token.common.enums.BizErrorCodeEnum;
 import com.thingtrust.token.common.model.ResponseResult;
+import com.thingtrust.token.domain.PaymentToken;
 import com.thingtrust.token.service.MailService;
 import com.thingtrust.token.service.TokenService;
 import com.thingtrust.token.util.ImageUtils.Captcha;
@@ -121,6 +122,12 @@ public class TokenController {
         return ResponseResult.success(IssueTokenCount.builder()
                 .count(count)
                 .build());
+    }
+
+    @GetMapping("/payment/detal")
+    public ResponseResult queryPaymentDetal(String assetId){
+        PaymentToken paymentToken = tokenService.queryPaymentTokenByAssetId(assetId);
+        return ResponseResult.success(paymentToken);
     }
 
 

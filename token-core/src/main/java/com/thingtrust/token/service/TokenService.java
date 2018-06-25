@@ -199,5 +199,13 @@ public class TokenService {
         return count;
     }
 
+    public PaymentToken queryPaymentTokenByAssetId(String assetId){
+        PaymentTokenExample paymentTokenExample = new PaymentTokenExample();
+        paymentTokenExample.createCriteria()
+                .andAssetIdEqualTo(assetId);
+        PaymentToken paymentToken = paymentTokenRepository.selectOneByExample(paymentTokenExample);
+        return paymentToken;
+    }
+
 
 }

@@ -48,9 +48,9 @@ public class LocaleUtils {
     private static final Pattern LOCALE_PATTERN;
     private static final char UNDERLINE = '_';
     private static final char DASH = '-';
-    @Autowired
+
     private static LocaleResolver localeResolver;
-    @Autowired
+
     private static MessageSource messageSource;
 
     @Autowired
