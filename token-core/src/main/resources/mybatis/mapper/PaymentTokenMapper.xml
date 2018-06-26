@@ -259,10 +259,8 @@
         FROM
             payment_token a
         LEFT JOIN token b ON a.token_id = b.id
-        <if test="sortItem != null and sortItem != '' ">
-            order by ${sortItem} ${sortType}
-        </if>
-        limit #{startIndex} , #{pageSize}
+            order by create_time DESC
+
     </select>
     <!-- end select -->
     <!-- My Custom Interfaces -->

@@ -18,6 +18,6 @@ import java.util.List;
 public interface PaymentTokenRepository
     extends CrudRepository<PaymentToken, PaymentTokenExample, Long> {
 
-    List<PaymentTokenIssuserEntity> selectPaymenTokenIssuserList(PageInfo pageInfo);
+    List<PaymentTokenIssuserEntity> selectPaymenTokenIssuserList();
 
 }
