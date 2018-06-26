@@ -259,7 +259,7 @@
         FROM
             payment_token a
         LEFT JOIN token b ON a.token_id = b.id
-            order by create_time DESC
+
 
     </select>
     <!-- end select -->
