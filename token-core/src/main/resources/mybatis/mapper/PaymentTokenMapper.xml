@@ -260,6 +260,8 @@
             payment_token a
         LEFT JOIN token b ON a.token_id = b.id AND a.asset_id is NOT NULL
 
+        order BY createTime DESC
+
 
     </select>
     <!-- end select -->
