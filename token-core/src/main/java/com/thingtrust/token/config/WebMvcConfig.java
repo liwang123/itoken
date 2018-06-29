@@ -1,10 +1,13 @@
 package com.thingtrust.token.config;
 
+import com.thingtrust.token.common.support.i18.CustomCookieLocaleResolver;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -12,6 +15,9 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+
+import java.util.Locale;
+import java.util.concurrent.Executors;
 
 
 /**
@@ -24,7 +30,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
-public class WebMvcConfig extends WebMvcConfigurationSupport {
+public class WebMvcConfig extends WebMvcConfigurationSupport implements SchedulingConfigurer {
 
     private static ThreadPoolTaskExecutor executor = null;
 
@@ -32,8 +38,10 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     @Bean
     public LocaleResolver localeResolver() {
-        final SessionLocaleResolver slr = new SessionLocaleResolver();
+        final CustomCookieLocaleResolver slr = new CustomCookieLocaleResolver();
         // 默认语言
+        slr.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
+        slr.setCookieName("locale");
         return slr;
     }
 
@@ -80,5 +88,10 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
                 .allowCredentials(true)
                 .allowedMethods("GET", "POST", "DELETE", "PUT")
                 .maxAge(3600);
+    }
+
+    @Override
+    public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
+        scheduledTaskRegistrar.setScheduler(Executors.newScheduledThreadPool(10));
     }
 }

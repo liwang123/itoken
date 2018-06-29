@@ -1,15 +1,12 @@
 package com.thingtrust.token.rest;
 
 
-import com.alibaba.fastjson.JSONObject;
-import com.google.common.collect.Lists;
-import com.google.inject.internal.util.Maps;
 import com.thingtrust.token.*;
 import com.thingtrust.token.common.enums.BizErrorCodeEnum;
 import com.thingtrust.token.common.model.ResponseResult;
 import com.thingtrust.token.common.mybatis.pager.PageInfo;
-import com.thingtrust.token.domain.PaymentToken;
 import com.thingtrust.token.entity.PageEntity;
+import com.thingtrust.token.entity.WxLoginEntity;
 import com.thingtrust.token.service.MailService;
 import com.thingtrust.token.service.TokenService;
 import com.thingtrust.token.util.ImageUtils.Captcha;
@@ -22,10 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/v1/token")
