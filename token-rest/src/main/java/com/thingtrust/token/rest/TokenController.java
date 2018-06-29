@@ -132,13 +132,9 @@ public class TokenController {
     }
 
     @GetMapping("/payment/issuser-list")
-    public ResponseResult queryAllIssuserToken(PageEntity pageEntity){
-        PageInfo pageInfo = new PageInfo((pageEntity.getPage()-1)* pageEntity.getRows(),pageEntity.getRows());
-        List<PaymentIssueTokenDTO> paymentTokenDTOList = tokenService.queryIssueTokenInfo(pageInfo);
-        long count = tokenService.queryIssueTokenCount();
-        pageInfo.setListObject(paymentTokenDTOList);
-        pageInfo.setTotals(count);
-        return ResponseResult.success(pageInfo);
+    public ResponseResult queryAllIssuserToken(){
+        List<PaymentIssueTokenDTO> paymentTokenDTOList = tokenService.queryIssueTokenInfo();
+        return ResponseResult.success(paymentTokenDTOList);
     }
 
 }

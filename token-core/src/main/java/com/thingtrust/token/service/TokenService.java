@@ -224,8 +224,8 @@ public class TokenService {
         return paymentTokenDTO;
     }
 
-    public List<PaymentIssueTokenDTO> queryIssueTokenInfo(PageInfo pageInfo){
-        List<PaymentTokenIssuserEntity> paymentTokenIssuserEntityList = paymentTokenRepository.selectPaymenTokenIssuserList(pageInfo);
+    public List<PaymentIssueTokenDTO> queryIssueTokenInfo(){
+        List<PaymentTokenIssuserEntity> paymentTokenIssuserEntityList = paymentTokenRepository.selectPaymenTokenIssuserList();
         List<PaymentIssueTokenDTO> paymentTokenDTOList = paymentTokenIssuserEntityList.stream()
                 .map(event-> {
                     PaymentIssueTokenDTO paymentTokenDTO = new PaymentIssueTokenDTO();
